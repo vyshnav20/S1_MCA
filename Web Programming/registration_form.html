@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        #r{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <marquee behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()"><h1>WELCOME TO FRESHERS WORLD!!</h1></marquee>
+    <hr>
+    <center>
+        <div>
+            <form method="get">
+            <table border="1" cellspacing="0" >
+                <tr>
+                    <td colspan="3" style="text-align: center;"><h2>Regitration Form</h2></td>
+                </tr>
+                <tr>
+                    <td id="r">Name: </td>
+                    <td colspan="2"><input type="text" placeholder="Enter full name" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td id="r">Age: </td>
+                    <td colspan="2"><input type="text" placeholder="Enter age" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td id="r">Password: </td>
+                    <td colspan="2"><input type="password" placeholder="Enter password" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td id="r">Re-enter Password: </td>
+                    <td colspan="2"><input type="password" placeholder="Re-enter password" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td  id="r" rowspan="4">Select your security question: </td>
+                    <td colspan="2"><input type="radio" name="ques" value="ans1">What is your pet name?</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="radio" name="ques" value="ans2">Who is your best friend?</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="radio" name="ques" value="ans3">What is your favourite colour?</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="radio" name="ques" value="ans4">Which is your favourite sports team?</td>
+                </tr>
+                <tr>
+                    <td id="r">Answer of security question: </td>
+                    <td colspan="2"><input type="text" placeholder="Enter answer" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td id="r">Email ID: </td>
+                    <td colspan="2"><input type="email" placeholder="Enter email id" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td id="r">Languages Known: </td>
+                    <td colspan="2"><input type="checkbox" value="Eng">English <input type="checkbox" value="Mal">Malayalam <input type="checkbox" value="Hind">Hindi</td>
+                </tr>
+                <tr>
+                    <td id="r" rowspan="2">Phone Number: </td>
+                    <td style="text-align: center;"><b>Home</b></td>
+                    <td style="text-align: center;"><b>Office</b></td>
+                </tr>
+                <tr>
+                    <td><input type="text" style="width: 100%;"></td>
+                    <td><input type="text" style="width: 100%;"></td>
+                </tr>
+                <tr>
+                    <td id="r">Upload CV: </td>
+                    <td colspan="2"><input type="file"></td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td><input type="reset"></td>
+                    <td colspan="2"><input type="submit"></td>
+                </tr>
+            </table>
+        </form>
+        </div>
+        
+    </center>
+</body>
+</html>
