@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+    <center><h1><u>Register</u></h1>
+    <hr>
+    <form method="get">
+        <table cellpadding="10" cellspacing="5">
+            <tr>
+                <td>
+                    <table style="text-align: right;">
+                        <tr>
+                            <td colspan="2" style="text-align: center;"><b><u>Personal Details</u></b></td>
+                        </tr>
+                        <tr>
+                            <td>Name: </td>
+                            <td><input type="text" placeholder="Enter your full name"></td>
+                        </tr>
+                        <tr>
+                            <td>Age: </td>
+                            <td><input type="text" placeholder="Enter your age"></td>
+                        </tr>
+                        <tr>
+                            <td>Gender: </td>
+                            <td style="text-align: center;"><input type="radio" name="gender" value="m">Male
+                                <input type="radio" name="gender" value="f">Female</td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number: </td>
+                            <td><input type="text" placeholder="Enter your phone number"></td>
+                        </tr>
+                        <tr>
+                            <td>Address: </td>
+                            <td><textarea name="address" id="address" cols="20" rows="3"></textarea></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table style="text-align: right;"  cellspacing="5">
+                        <tr>
+                            <td colspan="2" style="text-align: center;"><b><u>Education Details</u></b></td>
+                        </tr>
+                        <tr>
+                            <td>Name of Institute: </td>
+                            <td><input type="text" placeholder="Enter Institute name"></td>
+                        </tr>
+                        <tr>
+                            <td>Course: </td>
+                            <td style="text-align: left;"><select name="course" id="course">
+                                <option value="">Select course</option>
+                                <option value="MCA">MCA</option>
+                                <option value="M.Tech">M.Tech</option>
+                                <option value="B.Tech">B.Tech</option>
+                                <option value="B.Sc.">B.Sc.</option>
+                                <option value="B.A.">B.A.</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td>Specilazation: </td>
+                            <td style="text-align: left;"><select name="spec" id="spec">
+                                <option value="">Select subject</option>
+                                <option value="CS">Computer Science</option>
+                                <option value="CA">Computer Application</option>
+                                <option value="Phy">Physics</option>
+                                <option value="EE.">Electronics.</option>
+                                <option value="Mech">Mechanical</option>
+                                <option value="Eng">English</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td>Year of Passout: </td>
+                            <td style="text-align: left;"><input type="month"></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">Grade: </td>
+                            <td style="text-align: center;"><input type="radio" name="grade" value="p">Percentage
+                                <input type="radio" name="grade" value="c">CGPA</td>
+                        </tr>
+                        <tr><td><input type="text" placeholder="Enter Grade"></td></tr>
+                        
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </form>
+</center>
+</body>
+</html>
