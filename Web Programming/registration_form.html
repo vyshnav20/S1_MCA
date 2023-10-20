@@ -2,40 +2,65 @@
 <head>
     <title>Registration Form</title>
     <style>
+        body{
+            background-image: url("https://wallpapercave.com/wp/wp2055835.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
         #r{
             text-align: right;
         }
-        .form{
-            background-image: url('https://img.freepik.com/premium-photo/blurred-dark-background-abstract-blurred-background-blurred-background_900706-8622.jpg');
+        input[type="text"],input[type="password"],input[type="email"]{
+            background-color:rgba(0,0, 0,0.5);
+            color: aqua;
+            font-size: 15;
+            width: 100%;
+        }
+        table{
             color: white;
+            font-size: 20;
+        }
+        select{
+            background-color:rgb(0,0, 0);
+            color: aqua;
+            font-size: 15;
         }
     </style>
 </head>
 <body>
-    <marquee behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()"><h1>WELCOME TO FRESHERS WORLD!!</h1></marquee>
+    <marquee style="background-color: aqua;" behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()"><h1>WELCOME TO FRESHERS WORLD!!</h1></marquee>
     <hr>
     <center>
         <div class="form">
             <form method="get">
-            <table border="1" cellspacing="0" >
+            <table border="1" cellspacing="0" cellpadding="5" width="75%" >
                 <tr>
-                    <td colspan="3" style="text-align: center;"><h2>Regitration Form</h2></td>
+                    <td colspan="3" style="text-align: center;"><h2 style="color: aqua;">Regitration Form</h2></td>
                 </tr>
                 <tr>
                     <td id="r">Name: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter full name" style="width: 100%;"></td>
+                    <td colspan="2"><input type="text" placeholder="Enter full name"></td>
                 </tr>
                 <tr>
                     <td id="r">Age: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter age" style="width: 100%;"></td>
+                    <td colspan="2">
+                        <select name="age">
+                            <option value="">Select Age</option>
+                            <option value="<19">>19</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value=">22">>22</option>
+                        </select></td>
                 </tr>
                 <tr>
                     <td id="r">Password: </td>
-                    <td colspan="2"><input type="password" placeholder="Enter password" style="width: 100%;"></td>
+                    <td colspan="2"><input type="password" placeholder="Enter password" ></td>
                 </tr>
                 <tr>
                     <td id="r">Re-enter Password: </td>
-                    <td colspan="2"><input type="password" placeholder="Re-enter password" style="width: 100%;"></td>
+                    <td colspan="2"><input type="password" placeholder="Re-enter password" ></td>
                 </tr>
                 <tr>
                     <td  id="r" rowspan="4">Select your security question: </td>
@@ -52,11 +77,11 @@
                 </tr>
                 <tr>
                     <td id="r">Answer of security question: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter answer" style="width: 100%;"></td>
+                    <td colspan="2"><input type="text" placeholder="Enter answer" ></td>
                 </tr>
                 <tr>
                     <td id="r">Email ID: </td>
-                    <td colspan="2"><input type="email" placeholder="Enter email id" style="width: 100%;"></td>
+                    <td colspan="2"><input type="email" placeholder="Enter email id" ></td>
                 </tr>
                 <tr>
                     <td id="r">Languages Known: </td>
@@ -68,8 +93,8 @@
                     <td style="text-align: center;"><b>Office</b></td>
                 </tr>
                 <tr>
-                    <td><input type="text" style="width: 100%;"></td>
-                    <td><input type="text" style="width: 100%;"></td>
+                    <td><input type="text" ></td>
+                    <td><input type="text" ></td>
                 </tr>
                 <tr>
                     <td id="r">Upload CV: </td>
