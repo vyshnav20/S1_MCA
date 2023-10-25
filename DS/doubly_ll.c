@@ -3,8 +3,9 @@
 struct node
 {
     int data;
-    struct node *next;
-} *head, *temp, *prev;
+    struct node *next, *last;
+} *head, *temp, *prev, *tail;
+
 struct node *addnode()
 {
     int v;
@@ -13,25 +14,36 @@ struct node *addnode()
     scanf("%d", &v);
     new_node->data = v;
     new_node->next = NULL;
+    new_node->last = NULL;
     return new_node;
 }
 void insertBegining()
 {
     struct node *new = addnode();
     if (head == NULL)
+    {
         head = new;
+        tail = new;
+    }
+
     else
     {
         new->next = head;
+        head->last = new;
+        tail = head;
         head = new;
         printf("\nNODE ADDED!!! ");
     }
 }
+
 void insertEnd()
 {
     struct node *new = addnode();
     if (head == NULL)
+    {
         head = new;
+        tail = new;
+    }
     else
     {
         temp = head;
@@ -40,6 +52,8 @@ void insertEnd()
             temp = temp->next;
         }
         temp->next = new;
+        new->last = temp;
+        tail = new;
         printf("\n NODE ADDED!!! ");
     }
 }
@@ -52,7 +66,10 @@ void insertPos()
     scanf("%d", &pos);
     pos--;
     if (head == NULL)
+    {
         head = new;
+        tail = new;
+    }
     else
     {
         temp = head;
@@ -62,7 +79,10 @@ void insertPos()
         }
         new->next = temp->next;
         temp->next = new;
-        printf("\n NODE ADDED!!! ");
+        new->last = temp;
+        new->next->last = new;
+        if (new->next == NULL)
+            tail = new;
     }
 }
 
@@ -71,7 +91,10 @@ void delBegining()
     temp = head;
     printf("\n %d is deleted from linked list!!!", temp->data);
     head = head->next;
+    head->last = NULL;
     free(temp);
+    if(head->next=NULL)
+        tail = head;
 }
 
 void delEnd()
@@ -83,6 +106,7 @@ void delEnd()
         temp = temp->next;
     }
     prev->next = NULL;
+    tail = prev;
     printf("\n %d is deleted from linked list!!!", temp->data);
     free(temp);
 }
@@ -100,6 +124,9 @@ void delPos()
         temp = temp->next;
     }
     prev->next = temp->next;
+    temp->next->last=prev;
+    if(prev->next==NULL)
+        tail=prev;
     printf("\n %d is deleted from linked list!!!", temp->data);
     free(temp);
 }
@@ -135,6 +162,17 @@ void traverse()
         temp = temp->next;
     }
 }
+
+void display_reverse()
+{
+    temp = tail;
+    while (temp != NULL)
+    {
+        printf("%d ", temp->data);
+        temp = temp->last;
+    }
+}
+
 void insertion()
 {
     int ch;
@@ -167,7 +205,7 @@ void deletion()
     case 2:
         delEnd();
         break;
-    case 36:
+    case 3:
         delPos();
         break;
     }
@@ -177,7 +215,7 @@ void main()
     int ch;
     do
     {
-        printf("\n\n-----------------------------------------------------\n 1: Insertion\n 2: Deletion \n 3: Display Linked List\n 4: Search Elements\n 5: Exit\n\n-----------------------------------------------------\n Enter your choice: ");
+        printf("\n\n-----------------------------------------------------\n 1: Insertion\n 2: Deletion \n 3: Display Linked List\n 4: Display Linked List in reverse order\n 5: Search Elements\n 6: Exit\n\n-----------------------------------------------------\n Enter your choice: ");
         scanf("%d", &ch);
         switch (ch)
         {
@@ -191,8 +229,11 @@ void main()
             traverse();
             break;
         case 4:
+            display_reverse();
+            break;
+        case 5:
             search();
             break;
         }
-    } while (ch < 5);
+    } while (ch < 6);
 }
