@@ -125,7 +125,7 @@ void delPos()
     }
     prev->next = temp->next;
     temp->next->last = prev;
-    if (prev->next==NULL)
+    if (prev->next == NULL)
         tail = prev;
     printf("\n %d is deleted from linked list!!!", temp->data);
     free(temp);
