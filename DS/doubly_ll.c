@@ -93,7 +93,7 @@ void delBegining()
     head = head->next;
     head->last = NULL;
     free(temp);
-    if(head->next=NULL)
+    if (head->next = NULL)
         tail = head;
 }
 
@@ -124,9 +124,9 @@ void delPos()
         temp = temp->next;
     }
     prev->next = temp->next;
-    temp->next->last=prev;
-    if(prev->next==NULL)
-        tail=prev;
+    temp->next->last = prev;
+    if (prev->next==NULL)
+        tail = prev;
     printf("\n %d is deleted from linked list!!!", temp->data);
     free(temp);
 }
