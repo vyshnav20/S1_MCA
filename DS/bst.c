@@ -5,48 +5,49 @@ struct node
     int data;
     struct node *left;
     struct node *right;
-};
-struct node *addnode()
+}*root;
+struct node *addNode()
 {
-    int v;
-    struct node *new_node = (struct node *)malloc(sizeof(struct node));
-    printf("\n Enter value for new node: ");
-    scanf("%d", &v);
-    new_node->data = v;
-    new_node->left = NULL;
-    new_node->right = NULL;
-    return new_node;
+    struct node *new=(struct node *)malloc(sizeof(struct node);
+    printf("Enter value to new node: ");
+    scanf("%d",&new->data);
+    new->left=NULL;
+    new->left=NULL;
+    return new;
 }
-struct node *insert(struct node *root, struct node *new)
+struct node *insert(struct node *root,struct node *new)
 {
-    if (root == NULL)
-    {
+    if(root==NULL)
         return new;
+    else
+    {
+        if(new->data > root->data)
+            root->right=insert(root->right,new);
+        else
+            root->left=insert(root->left,new);
     }
-
-    if (new->data > root->data)
-        root->right = insert(root->right, new);
-    else if (new->data <= root->data)
-        root->left = insert(root->left, new);
     return root;
 }
-
 void traverse(struct node *root)
 {
-    if (root != NULL)
+    if (root==NULL)
+        printf("Tree Empty");
+    else
     {
         traverse(root->left);
-        printf("%d", root->data);
+        print("%d ",root->data);
         traverse(root->right);
     }
 }
 void main()
 {
-    struct node *root;
-    for (int i = 0; i < 5; i++)
-    {
-        struct node *new1 = addnode();
-        root = insert(root, new1);
-    }
+    int n;
+    printf("Enter number of nodes in tree: ");
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+        {
+            struct node *new=addNoded();
+            root=insert(root,new);
+        }
     traverse(root);
 }
