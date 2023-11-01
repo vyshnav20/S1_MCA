@@ -8,7 +8,7 @@ struct node
 }*root;
 struct node *addNode()
 {
-    struct node *new=(struct node *)malloc(sizeof(struct node);
+    struct node *new=(struct node *)malloc(sizeof(struct node));
     printf("Enter value to new node: ");
     scanf("%d",&new->data);
     new->left=NULL;
@@ -19,25 +19,24 @@ struct node *insert(struct node *root,struct node *new)
 {
     if(root==NULL)
         return new;
+   
+        
+    if(new->data > root->data)
+        root->right=insert(root->right,new);
     else
-    {
-        if(new->data > root->data)
-            root->right=insert(root->right,new);
-        else
-            root->left=insert(root->left,new);
-    }
+        root->left=insert(root->left,new);
+
     return root;
 }
 void traverse(struct node *root)
 {
-    if (root==NULL)
-        printf("Tree Empty");
-    else
+    if (root!=NULL)
     {
         traverse(root->left);
-        print("%d ",root->data);
+        printf("%d ",root->data);
         traverse(root->right);
     }
+    
 }
 void main()
 {
@@ -46,8 +45,11 @@ void main()
     scanf("%d",&n);
     for(int i=0;i<n;i++)
         {
-            struct node *new=addNoded();
+            struct node *new=addNode();
             root=insert(root,new);
         }
+    
+    
     traverse(root);
+    
 }
