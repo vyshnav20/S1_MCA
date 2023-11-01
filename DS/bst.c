@@ -17,38 +17,36 @@ struct node *addnode()
     new_node->right = NULL;
     return new_node;
 }
-void insert(struct node *root, struct node *new)
+struct node *insert(struct node *root, struct node *new)
 {
     if (root == NULL)
     {
-        root = new;
-        printf("%d", root->data);
+        return new;
     }
 
-    else
-    {
-        if (new->data > root->data)
-            insert(root->right, new);
-        else if (new->data <= root->data)
-            insert(root->left, new);
-        if (new->data > root->data)
-            root->right = new;
-        else
-            root->left = new;
-    }
+    if (new->data > root->data)
+        root->right = insert(root->right, new);
+    else if (new->data <= root->data)
+        root->left = insert(root->left, new);
+    return root;
 }
+
 void traverse(struct node *root)
 {
-    printf("%d", root->data);
-    printf("%d", root->right->data);
+    if (root != NULL)
+    {
+        traverse(root->left);
+        printf("%d", root->data);
+        traverse(root->right);
+    }
 }
 void main()
 {
-    struct node *new1 = addnode();
     struct node *root;
-    insert(root, new1);
-    struct node *new2 = addnode();
-    insert(root, new2);
+    for (int i = 0; i < 5; i++)
+    {
+        struct node *new1 = addnode();
+        root = insert(root, new1);
+    }
     traverse(root);
-    
 }
