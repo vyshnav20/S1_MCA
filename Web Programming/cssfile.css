@@ -1,0 +1,40 @@
+body{
+    background: url("https://media3.giphy.com/media/ITRemFlr5tS39AzQUL/200w.webp?cid=ecf05e47mpu2zplcm96rkxe46d1ld59dcmf7mdxrq3mvfx7y&ep=v1_gifs_search&rid=200w.webp&ct=g");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#heading,h2{
+    color: white;
+    text-align: center;
+    background-color: black;
+    
+}
+img
+{
+    width: 100%;
+    margin:0;
+}
+
+.div1{
+    display:flex;
+    flex-direction: row;
+    height: 450px;
+    width: 100%;
+    margin:0;
+}
+.div2{
+    width: 50%;
+    height: 550px;
+}
+.table{
+    margin-top: 0;
+}
+.div3{
+    margin-left:50px;
+    background-color: rgba(0,0,0,0.4);
+}
+#div3{
+    font-size: 28px;
+    color:beige;
+}
