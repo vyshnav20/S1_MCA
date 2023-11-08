@@ -56,7 +56,7 @@ void insertPos()
     else
     {
         temp = head;
-        for (int i = 0; i <pos; i++)
+        for (int i = 0; i < pos; i++)
         {
             temp = temp->next;
         }
