@@ -80,14 +80,61 @@ void search(struct node *root, int v)
     }
 }
 
-void traverse(struct node *root)
+void in_traverse(struct node *root)
 {
 
     if (root != NULL)
     {
-        traverse(root->left);
+        in_traverse(root->left);
         printf("%d ", root->data);
-        traverse(root->right);
+        in_traverse(root->right);
+    }
+}
+void pre_traverse(struct node *root)
+{
+
+    if (root != NULL)
+    {
+        printf("%d ", root->data);
+        pre_traverse(root->left);
+        pre_traverse(root->right);
+    }
+}
+void post_traverse(struct node *root)
+{
+
+    if (root != NULL)
+    {
+        post_traverse(root->left);
+        post_traverse(root->right);
+        printf("%d ", root->data);
+    }
+}
+void traversal(struct node *root)
+{
+    int n;
+    printf("\n----------------\n 1: Inorder Traversal\n 2: Preorder Traversal\n 3: Postorder Traversal\n----------------\n Enter your choice: ");
+    scanf("%d", &n);
+    switch (n)
+    {
+    case 1:
+        printf("Inorder Traversal : ");
+        in_traverse(root);
+        printf("\n");
+        break;
+
+    case 2:
+
+        printf("Preorder Traversal : ");
+        pre_traverse(root);
+        printf("\n");
+        break;
+
+    case 3:
+        printf("Postorder Traversal : ");
+        post_traverse(root);
+        printf("\n");
+        break;
     }
 }
 void main()
@@ -95,7 +142,7 @@ void main()
     int n, v;
     do
     {
-        printf("\n----------------\n 1: Insertion\n 2: Deletion\n 3: Inorder Traversal\n 4: Search\n 5: Exit\n----------------\n Enter your choice: ");
+        printf("\n----------------\n 1: Insertion\n 2: Deletion\n 3: Traversal\n 4: Search\n 5: Exit\n----------------\n Enter your choice: ");
         scanf("%d", &n);
         switch (n)
         {
@@ -113,16 +160,14 @@ void main()
             break;
 
         case 3:
-            printf("Inorder Traversal : ");
-            traverse(root);
-            printf("\n");
+            traversal(root);
             break;
 
-            case 4:
+        case 4:
             printf("\n Enter value of node to be searched: ");
             scanf("%d", &v);
             search(root, v);
             break;
-            }
+        }
     } while (n < 5);
 }
