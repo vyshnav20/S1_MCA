@@ -12,7 +12,7 @@ struct node *addNode()
     printf("Enter value to new node: ");
     scanf("%d", &new->data);
     new->left = NULL;
-    new->left = NULL;
+    new->right = NULL;
     return new;
 }
 
