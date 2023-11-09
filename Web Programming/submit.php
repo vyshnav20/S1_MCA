@@ -75,13 +75,7 @@
             echo $office;
             ?></td>
         </tr>
-        <tr>
-            <td>Uploaded CV</td>
-            <td> <?php
-            $file=$_FILES['f']["name"];
-            echo $file;
-            ?></td>
-        </tr>
+        
     </table>
     </center>
     
