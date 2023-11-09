@@ -5,6 +5,7 @@
             background-image: url("https://wallpapercave.com/wp/wp2055835.jpg");
             background-repeat: no-repeat;
             background-size: cover;
+            color: white;
         }
         table{
             color: white;
@@ -14,6 +15,7 @@
     </head>
     <body>
     <center>
+    <h1>REGISTERED DETAILS</h1>    
     <table border="1" cellspacing="0" cellpadding="5" width="75%" >
         <tr>
             <td>Name</td>
