@@ -98,7 +98,7 @@
                 </tr>
                 <tr>
                     <td id="r">Upload CV: </td>
-                    <td colspan="2"><input type="file"></td>
+                    <td colspan="2"><input type="file" name="f"></td>
                 </tr>
                 <tr style="text-align: center;">
                     <td><input type="reset"></td>

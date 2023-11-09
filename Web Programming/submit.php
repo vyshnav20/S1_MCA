@@ -21,7 +21,7 @@
             <td>Name</td>
             <td> <?php
             $name=$_POST['fname'];
-            echo "".$name;
+            echo $name;
             ?>
             </td>
         </tr>
@@ -29,28 +29,28 @@
             <td>Age</td>
             <td> <?php
             $age=$_POST['age'];
-            echo "".$age;
+            echo $age;
             ?></td>
         </tr>
         <tr>
             <td>Security question</td>
             <td> <?php
             $sq=$_POST['ques'];
-            echo "".$sq;
+            echo $sq;
             ?></td>
         </tr>
         <tr>
             <td>Security answer</td>
             <td> <?php
             $sq_ans=$_POST['secq_ans'];
-            echo "".$sq_ans;
+            echo $sq_ans;
             ?></td>
         </tr>
         <tr>
             <td>Email ID</td>
             <td> <?php
             $email=$_POST['email'];
-            echo "".$email;
+            echo $email;
             ?></td>
         </tr>
         <tr>
@@ -58,21 +58,28 @@
             <td> <?php
             $lang=$_POST['lang'];
             for ($i=0;$i<=2;$i++)
-                echo "".$lang[$i]."  ";
+                echo $lang[$i]."  ";
             ?></td>
         </tr>
         <tr>
             <td>Home Phone Number</td>
             <td> <?php
             $home=$_POST['home'];
-            echo "".$home;
+            echo $home;
             ?></td>
         </tr>
         <tr>
             <td>Office Phone Number</td>
             <td> <?php
             $office=$_POST['office'];
-            echo "".$office;
+            echo $office;
+            ?></td>
+        </tr>
+        <tr>
+            <td>Uploaded CV</td>
+            <td> <?php
+            $file=$_FILES['f']["name"];
+            echo $file;
             ?></td>
         </tr>
     </table>
