@@ -4,8 +4,8 @@ struct node
 {
     int data;
     struct node *next;
-} *head, *temp, *prev;
-
+} *head, *temp, *prev,*curr;
+int c=-1;
 struct node *addnode()
 {
     int v;
@@ -34,6 +34,7 @@ void insertBegining()
         head = new;
     }
     printf("\n NODE ADDED!!! ");
+    c++;
 }
 void insertEnd()
 {
@@ -52,8 +53,9 @@ void insertEnd()
         }
         temp->next = new;
         new->next = head;
-        printf("\n NODE ADDED!!! ");
+        
     }
+    c++;
 }
 
 void insertPos()
@@ -62,16 +64,42 @@ void insertPos()
     int pos;
     printf("Enter position to add node: ");
     scanf("%d", &pos);
-    pos--;
-    if (head == NULL)
+    if(pos==0 && head!=NULL)
+    {
+        temp=head;
+        while (temp->next != head)
+            temp = temp->next;
+        new->next = head;
+        temp->next = new;
+        head = new;
+        printf("\n NODE ADDED!!! ");
+    }
+    else if (pos>c)
+    {
+        printf("INVALID POSITION");
+        return;
+    }
+    else if (head == NULL)
     {
         head = new;
         head->next = head;
+        printf("\n NODE ADDED!!! ");
+    }
+    else if(pos==c-1)
+    {
+        temp = head;
+        while (temp->next != head)
+        {
+            temp = temp->next;
+        }
+        temp->next = new;
+        new->next = head;
     }
     else
     {
         temp = head;
-        for (int i = 0; i < pos; i++)
+        pos--;
+        for (int i = 0; i <pos; i++)
         {
             temp = temp->next;
         }
@@ -79,44 +107,89 @@ void insertPos()
         temp->next = new;
         printf("\n NODE ADDED!!! ");
     }
+    c++;
 }
 
 void delBegining()
 {
     temp = head;
+    if (head == NULL)
+    {
+      printf ("Linked List Empty, nothing to delete");
+      return;
+    }
+    if (temp->next == head)
+    {
+      head = NULL;
+      return;
+    }
+    curr=head;
     printf("\n %d is deleted from linked list!!!", temp->data);
+    while (curr->next != head)
+        {
+            curr = curr->next;
+        }
+    curr->next=head->next;
     head = head->next;
     free(temp);
+    c--;
 }
 
 void delEnd()
 {
     temp = head;
-    while (temp->next != NULL)
+    if (head == NULL)
     {
-        prev = temp;
-        temp = temp->next;
+      printf ("Linked List Empty, nothing to delete");
+      return;
     }
-    prev->next = NULL;
+    if (temp->next == head)
+    {
+      head = NULL;
+      return;
+    }
+    
+    
+    while (temp->next != head)
+        {
+            prev=temp;
+            temp = temp->next;
+        }
+    prev->next=head;
     printf("\n %d is deleted from linked list!!!", temp->data);
     free(temp);
+    c--;
 }
 
 void delPos()
 {
     temp = head;
-    int pos;
+    int pos,k=0;
     printf("Enter position to add node: ");
     scanf("%d", &pos);
-    pos--;
-    for (int i = 1; i <= pos; i++)
+    if(pos==0)
+        delBegining();
+    else if(pos==c)
+        delEnd();
+    else if (pos>c)
     {
-        prev = temp;
-        temp = temp->next;
+        printf("INVALID POSITION");
+        return;
     }
-    prev->next = temp->next;
-    printf("\n %d is deleted from linked list!!!", temp->data);
-    free(temp);
+    else
+    {        
+        while(k!=pos)
+        {            
+            prev=temp;
+            temp=temp->next;
+            k++;
+        }
+        prev->next=temp->next;
+        printf("\n %d is deleted from linked list!!!", temp->data);
+        free(temp);
+    }
+    
+    c--;
 }
 
 void search()
@@ -182,7 +255,7 @@ void deletion()
     case 2:
         delEnd();
         break;
-    case 36:
+    case 3:
         delPos();
         break;
     }
