@@ -169,9 +169,9 @@ void delPos()
     scanf("%d", &pos);
     if(pos==0)
         delBegining();
-    else if(pos==c)
+    else if(pos==c+1)
         delEnd();
-    else if (pos>c)
+    else if (pos>c+1)
     {
         printf("INVALID POSITION");
         return;

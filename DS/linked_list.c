@@ -115,7 +115,7 @@ void delPos()
 {
     temp = head;
     int pos;
-    printf("Enter position to add node(0 to %d): ",c);
+    printf("Enter position to add node: ");
     scanf("%d", &pos);
     if(pos==0)
     {

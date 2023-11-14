@@ -160,8 +160,7 @@ void delPos()
         return;
     }
     else
-    {        
-        while(k!=pos)
+    {   while(k!=pos)
         {            
             temp=temp->next;
             k++;
