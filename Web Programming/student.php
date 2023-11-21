@@ -16,12 +16,17 @@
 <?php
 $conn=mysqli_connect("localhost","root","cetmca","mca_s1");
 $name=$_POST['name'];
-$rno=$_POST['rno'];
-$age=$_POST['age'];
+$rno=(int)$_POST['rno'];
+$age=(int)$_POST['age'];
 if(!$conn)
     echo mysqli_connect_error();
 else
 {
-    $q="insert into student values($name,$rno,$age"
+    echo "hi";
+    $q="insert into student values($name,$rno,$age)";
+    if(mysqli_query($conn,$q))
+    {
+        echo "Inserted";
+    }
 }
 ?>
