@@ -4,22 +4,15 @@
 </head>
 <body>
     <center><h1>Register</h1>
-    <form action="student.php" method="post">
-        Name: <input type="text" placeholder="Enter your name" name="name"><br>
+    <form action="searchroll.php" method="post">
         Roll No:<input type="text" placeholder="Enter Roll Number" name="rno"><br>
-        Marks: <input type="text" placeholder="Enter marks" name="mark"><br>
-        <input type="submit" name="insert" value="Submit">
-        <input type="submit" name="display" value="Display">
+        <input type="submit" name="display" value="Display Details">
     </form>    
 
 <?php
 if (array_key_exists('display',$_POST))
 {
     display();
-}
-else if (array_key_exists('insert',$_POST))
-{
-    insert();
 }
 function insert()
 {
@@ -53,13 +46,22 @@ function insert()
 function display()
 {
     $conn=mysqli_connect("localhost","root","cetmca","student");
+    $rno=$_POST['rno'];
     echo "<table border='1'><tr><td>Roll Number</td><td>Name</td><td>Marks</td></tr>";
-    $result = mysqli_query($conn, "SELECT * FROM stud" );
-    while ($row = mysqli_fetch_assoc($result)) {
+    $result = mysqli_query($conn, "SELECT * FROM stud where RollNo='$rno'" );
+    if(mysqli_num_rows($result))
+    {
+        while ($row = mysqli_fetch_assoc($result)) {
 
-        echo "<tr><td>".$row{'RollNo'}."</td><td>".$row{'Name'}."</td><td> ". $row{'Mark'}."</td></tr>";
-        
-        }
+            echo "<tr><td>".$row{'RollNo'}."</td><td>".$row{'Name'}."</td><td> ". $row{'Mark'}."</td></tr>";
+            
+            }
+    }
+    else
+    {
+        echo "<script>alert('Student Not Registered');</script>";
+    }
+    
 
 }
 ?>
