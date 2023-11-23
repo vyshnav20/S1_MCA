@@ -30,11 +30,11 @@ function display()
                 echo "<script>alert('Incorrect Password');</script>";
                 else{
             
-                    echo "<table border='1'><tr><td>Name</td><td>Age</td><td>Email</td></tr>";
+                    echo "<table border='1'><tr><td>Name</td><td>ID</td><td>Age</td><td>Email</td><td>Languages</td><td>Home Phone Number</td><td>Office Phone Number</td></tr>";
                     
                     {
         
-                    echo "<tr><td>".$row{'Name'}."</td><td>".$row{'Age'}."</td><td> ". $row{'Email'}."</td></tr>";
+                    echo "<tr><td>".$row{'Name'}."</td><td>".$row{'ID'}."</td><td>".$row{'Age'}."</td><td> ". $row{'Email'}."</td><td>".$row{'Languages'}."</td><td>".$row{'HomePh'}."</td><td>".$row{'OfficePh'}."</td></tr>";
                     
                     }
                 }
