@@ -4,7 +4,7 @@
 </head>
 <body>
     <center><h1>Register</h1>
-    <form action="searchroll.php" method="post">
+    <form action="" method="post">
         Roll No:<input type="text" placeholder="Enter Roll Number" name="rno"><br>
         <input type="submit" name="display" value="Display Details">
     </form>    
@@ -14,56 +14,39 @@ if (array_key_exists('display',$_POST))
 {
     display();
 }
-function insert()
-{
-    $conn=mysqli_connect("localhost","root","cetmca","student");
-    $name=$_POST['name'];
-    $rno=$_POST['rno'];
-    $mark=$_POST['mark'];
-    if(!$conn)
-        echo mysqli_connect_error();
-    else
-    {
-        $q= "insert into stud values('$rno','$name','$mark')";
-        $p= mysqli_query($conn,$q);
-        if($p)
-        {
-            echo "<script>alert('Inserted details to database');</script>";
-        }
-        else
-        {
-            $s="Duplicate";
-            if(strpos(mysqli_error($conn),$s)==false)
-            {
-                echo "<script>alert('Cannot insert student with Duplicate Roll Number');</script>";
-            }
-        }
-    }
+if (array_key_exists('update', $_POST)) {
+    update();
 }
-    
-
 
 function display()
 {
-    $conn=mysqli_connect("localhost","root","cetmca","student");
+    $conn=mysqli_connect("localhost","root","Vyshnav@2002","student");
     $rno=$_POST['rno'];
-    echo "<table border='1'><tr><td>Roll Number</td><td>Name</td><td>Marks</td></tr>";
+    echo "<form method='post'>";
     $result = mysqli_query($conn, "SELECT * FROM stud where RollNo='$rno'" );
     if(mysqli_num_rows($result))
     {
         while ($row = mysqli_fetch_assoc($result)) {
 
-            echo "<tr><td>".$row{'RollNo'}."</td><td>".$row{'Name'}."</td><td> ". $row{'Mark'}."</td></tr>";
+            echo "Roll NO: <input type='text' value=".$row['RollNo']." disabled> Name: <input type='text' value=".$row['Name']." disabled> Mark: <input type='text' value=".$row['Marks']." name='up_mark'><input type='hidden' value=".$row['RollNo']." name='rno'><input type='submit' value='Update' name='update'> ";
             
             }
-    }
-    else
-    {
-        echo "<script>alert('Student Not Registered');</script>";
+        } else {
+            echo "<script>alert('Student Not Registered');</script>";
+        }
     }
     
-
-}
+    function update() {
+        $conn=mysqli_connect("localhost","root","Vyshnav@2002","student");
+        $rno=$_POST['rno'];
+        $new_mark = $_POST['up_mark'];
+        $update_query = "UPDATE stud SET Marks='$new_mark' WHERE RollNo='$rno'";
+        if(mysqli_query($conn, $update_query)) {
+            echo "Marks updated successfully";
+        } else {
+            echo "Error updating record: " . mysqli_error($conn);
+        }
+    }
 ?>
 </center>
 </body>
