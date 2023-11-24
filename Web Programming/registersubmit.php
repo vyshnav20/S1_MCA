@@ -32,7 +32,7 @@
     <hr>
     <center>
         <div class="form" style="background-color: rgb(0, 0, 0);">
-            <form method="post" action="registersubmit.php">
+            <form method="post" action="formsubmit.php" autocomplete="off">
             <table border="1" cellspacing="0" cellpadding="5" width="75%" >
                 <tr>
                     <td colspan="3" style="text-align: center;"><h2 style="color: aqua;">Regitration Form</h2></td>
@@ -60,7 +60,7 @@
                 </tr>
                 <tr>
                     <td id="r">Re-enter Password: </td>
-                    <td colspan="2"><input type="password" placeholder="Re-enter password" ></td>
+                    <td colspan="2"><input type="password" placeholder="Re-enter password" name="repass" ></td>
                 </tr>
                 <tr>
                     <td  id="r" rowspan="4">Select your security question: </td>
@@ -111,51 +111,4 @@
     </center>
     
 </body>
-<?php
-if (array_key_exists('display',$_POST))
-{
-    display();
-}
-else if (array_key_exists('insert',$_POST))
-{
-    insert();
-}
-function insert()
-{
-    $name=$_POST['fname'];
-    $age=$_POST['age'];
-    $id=rand(2,99);
-    echo "<script>alert('$id');</script>";
-    $pass=$_POST['password'];
-    $sq=$_POST['ques'];
-    $sq_ans=$_POST['secq_ans'];
-    $email=$_POST['email'];
-    $lang=$_POST['lang'];
-    $l='';
-    for ($i=0;$i<count($lang);$i++)
-        $l.=$lang[$i]."  ";
-    $home=$_POST['home'];
-    $office=$_POST['office'];
-    $conn=mysqli_connect("localhost","root","cetmca","student");
-    if(!$conn)
-            echo mysqli_connect_error();
-        else
-        {
-            $q= "insert into register values('$name','$id','$age','$pass','$sq','$sq_ans','$email','$l','$home','$office')";
-            $p= mysqli_query($conn,$q);
-            if($p)
-            {
-                echo "<script>alert('Inserted details to database');</script>";
-            }
-            else
-            {
-                $s="Duplicate";
-                if(strpos(mysqli_error($conn),$s)==false)
-                {
-                    echo "<script>alert('Cannot insert student with Duplicate Roll Number');</script>";
-                }
-            }
-        }
-}
-
-?>
+</html>
