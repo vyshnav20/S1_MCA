@@ -20,7 +20,7 @@ if (array_key_exists('update', $_POST)) {
 
 function display()
 {
-    $conn=mysqli_connect("localhost","root","Vyshnav@2002","student");
+    $conn=mysqli_connect("localhost","root","cetmca","student");
     $rno=$_POST['rno'];
     echo "<form method='post'>";
     $result = mysqli_query($conn, "SELECT * FROM stud where RollNo='$rno'" );
@@ -37,7 +37,7 @@ function display()
     }
     
     function update() {
-        $conn=mysqli_connect("localhost","root","Vyshnav@2002","student");
+        $conn=mysqli_connect("localhost","root","cetmca","student");
         $rno=$_POST['rno'];
         $new_mark = $_POST['up_mark'];
         $update_query = "UPDATE stud SET Marks='$new_mark' WHERE RollNo='$rno'";

@@ -38,10 +38,7 @@ if (array_key_exists('display',$_POST))
 {
     display();
 }
-else if (array_key_exists('insert',$_POST))
-{
-    insert();
-}
+
 function insert()
 {
     $name=$_POST['fname'];
@@ -52,7 +49,7 @@ function insert()
     
     $home=$_POST['home'];
     $office=$_POST['office'];
-    $conn=mysqli_connect("localhost","root","Vyshnav@2002","student");
+    $conn=mysqli_connect("localhost","root","cetmca","student");
     if(!$conn) {
         echo mysqli_connect_error();
     } else {
@@ -98,7 +95,7 @@ function insert()
 function generateID()
 {
     
-    $conn=mysqli_connect("localhost","root","Vyshnav@2002","student");
+    $conn=mysqli_connect("localhost","root","cetmca","student");
     $result = mysqli_query($conn, "SELECT MAX(ID) FROM register" );
     if(mysqli_num_rows($result))
     {
@@ -116,7 +113,7 @@ function generateID()
   
 function display()
 {
-    $conn=mysqli_connect("localhost","root","Vyshnav@2002","student");
+    $conn=mysqli_connect("localhost","root","cetmca","student");
     $rno=$_POST['rno'];
     $p=$_POST['pass'];
     $result = mysqli_query($conn, "SELECT * FROM register where ID='$rno'" );
