@@ -28,6 +28,6 @@ void main()
 	}
 	printf("Enter starting node (0-%d): ",(n-1));
 	scanf("%d",&start);
-	printf("DFS Traversal: ");
+	printf("\nDFS Traversal: ");
 	dfs(start,n,a,v);
 }
