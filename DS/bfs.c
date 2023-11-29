@@ -1,42 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 int MAX = 10, rear = -1, front = -1;
-int a[10];
-void Enqueue(int val, int V[], int c)
-{
-    if (rear == MAX - 1)
-        printf("\n QUEUE OVERFLOW!!!");
-    else
-    {
-        if (rear == -1)
-            front = 0;
-        rear++;
-        a[rear] = val;
-    }
-    V[c] = 1;
-}
-void Dequeue(int n, int N[], int A[n][n], int V[])
-{
-    if (front == -1)
-        printf("\n QUEUE UNDERFLOW!!!");
-    else
-    {
-        int v = a[front];
-        front++;
-        if (front > rear)
-        {
-            front = rear = -1;
-        }
-    }
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-        {
-            if (i == 0)
-                if (A[0][j] == 1)
-                    Enqueue(N[j], V, i + 1);
-        }
-}
-
+int q[10];
+void Enqueue(int val, int si, int a[si][si], int v[]);
 void display()
 {
     if (rear == -1)
@@ -45,35 +11,63 @@ void display()
     {
         printf("\n QUEUE ELEMENTS: ");
         for (int i = front; i <= rear; i++)
-            printf("%d ", a[i]);
+            printf("%d ", q[i]);
+    }
+}
+void Dequeue(int si, int a[si][si], int v[])
+{
+    int val;
+    if (front == -1)
+        printf("\n Empty");
+    else
+    {
+        val = q[front];
+        front++;
+        if (front > rear)
+        {
+            front = rear = -1;
+        }
+        for (int i = 0; i < si; i++)
+        {
+            if (a[val][i] == 1 && v[i] != 1)
+                Enqueue(i, si, a, v);
+        }
+    }
+}
+
+void Enqueue(int val, int si, int a[si][si], int v[])
+{
+    if (v[val] != 1)
+    {
+        if (rear == -1)
+            front = 0;
+        rear++;
+        q[rear] = val;
+        printf("%d ", val);
+        v[val] = 1;
+        for (int i = 0; i < si; i++)
+        {
+            if (a[val][i] == 1 && v[i] != 1)
+                Dequeue(si, a, v);
+        }
     }
 }
 
 void main()
 {
-    int n;
-    int c = 0;
+    int n, start;
     printf("Enter number of nodes: ");
     scanf("%d", &n);
-    int A[n][n], V[n], N[n];
+    int a[n][n], v[n];
+    printf("Enter Adjacency matrix for the graph: ");
     for (int i = 0; i < n; i++)
     {
-        V[i] = 0;
-        N[i] = i + 1;
-    }
-    printf("Enter the cost adjacency matrix of the graph: ");
-    for (int i = 0; i < n; i++)
+        v[i] = 0;
         for (int j = 0; j < n; j++)
-        {
-            scanf("%d", &A[i][j]);
-            if (A[i][j] == 0)
-                A[i][j] = 999;
-        }
-    Enqueue(N[0], V, c);
-
-    Dequeue(n, N, A, V);
-    display();
-    printf("\n");
-    for (int i = 0; i < n; i++)
-        printf("%d ", V[i]);
+            scanf("%d", &a[i][j]);
+    }
+    printf("Enter starting node (0-%d): ", (n - 1));
+    scanf("%d", &start);
+    printf("\nDFS Traversal: ");
+    Enqueue(start, n, a, v);
 }
