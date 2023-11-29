@@ -127,14 +127,16 @@ function display()
             
                     echo "<center><h1  style='color: aqua;'>REGISTERD DETAILS</h1><br><table width='75%' cellspacing='0' border='1' style=' text-align:center; color: white; font-size: 24px;'><tr><td>Name</td><td>ID</td><td>Age</td><td>Email</td><td>Languages</td><td>Home Phone Number</td><td>Office Phone Number</td></tr>";
                     
-                    {
         
                     echo "<tr><td>".$row['Name']."</td><td>".$row['ID']."</td><td>".$row['Age']."</td><td> ". $row['Email']."</td><td>".$row['Languages']."</td><td>".$row['HomePh']."</td><td>".$row['OfficePh']."</td></tr>";
                     
-                    }
                 }
                 echo "</center></table>";
         } 
     }  
+    else
+    {
+        echo "<script>alert('Please Register brfore login');</script>";
+    }
 }
 ?>
