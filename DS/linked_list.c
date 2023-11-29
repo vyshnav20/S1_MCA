@@ -90,90 +90,116 @@ void insertPos()
 
 void delBegining()
 {
-    temp = head;
-    printf("\n %d is deleted from linked list!!!", temp->data);
-    head = head->next;
-    free(temp);
-    c--;
+    if(head==NULL)
+        printf("\n Linked List Empty");
+    else
+    {
+        temp = head;
+        printf("\n %d is deleted from linked list!!!", temp->data);
+        head = head->next;
+        free(temp);
+        c--;
+    }
+    
 }
 
 void delEnd()
 {
-    temp = head;
-    while (temp->next != NULL)
-    {
-        prev = temp;
-        temp = temp->next;
-    }
-    prev->next = NULL;
-    printf("\n %d is deleted from linked list!!!", temp->data);
-    free(temp);
-    c--;
-}
-
-void delPos()
-{
-    temp = head;
-    int pos;
-    printf("Enter position to add node: ");
-    scanf("%d", &pos);
-    if(pos==0)
-    {
-        temp=head;
-        head=head->next;
-        printf("\n %d is deleted from linked list!!!", temp->data);
-        free(temp);
-    }
-    else if (pos>c)
-    {
-        printf("INVALID POSITION");
-    }
+    if(head==NULL)
+        printf("\n Linked List Empty");
     else
     {
-        pos--;
-        temp=head;
-        for (int i = 0; i <= pos; i++)
+        temp = head;
+        while (temp->next != NULL)
         {
             prev = temp;
             temp = temp->next;
         }
-        prev->next = temp->next;
+        prev->next = NULL;
         printf("\n %d is deleted from linked list!!!", temp->data);
         free(temp);
+        c--;
     }
-    
-    c--;
+}
+
+void delPos()
+{
+    if(head==NULL)
+        printf("\n Linked List Empty");
+    else
+    {
+        temp = head;
+        int pos;
+        printf("Enter position to add node: ");
+        scanf("%d", &pos);
+        if(pos==0)
+        {
+            temp=head;
+            head=head->next;
+            printf("\n %d is deleted from linked list!!!", temp->data);
+            free(temp);
+        }
+        else if (pos>c)
+        {
+            printf("INVALID POSITION");
+        }
+        else
+        {
+            pos--;
+            temp=head;
+            for (int i = 0; i <= pos; i++)
+            {
+                prev = temp;
+                temp = temp->next;
+            }
+            prev->next = temp->next;
+            printf("\n %d is deleted from linked list!!!", temp->data);
+            free(temp);
+        }
+        
+        c--;
+    }
 }
 
 void search()
 {
-    temp = head;
-    int s, pos = 1, c = 0;
-    printf("\n Enter number to be searched: ");
-    scanf("%d", &s);
-    while (temp != NULL)
-    {
-        if (temp->data == s)
-        {
-            c = 1;
-            break;
-        }
-        pos++;
-        temp = temp->next;
-    }
-    if (c == 1)
-        printf("\n%d is present in position %d of the linked list", s, pos);
+    if(head==NULL)
+        printf("\n Linked List Empty");
     else
-        printf("\n%d is not found in the linked list ", s);
+    {
+        temp = head;
+        int s, pos = 1, c = 0;
+        printf("\n Enter number to be searched: ");
+        scanf("%d", &s);
+        while (temp != NULL)
+        {
+            if (temp->data == s)
+            {
+                c = 1;
+                break;
+            }
+            pos++;
+            temp = temp->next;
+        }
+        if (c == 1)
+            printf("\n%d is present in position %d of the linked list", s, pos);
+        else
+            printf("\n%d is not found in the linked list ", s);
+    }
 }
 
 void traverse()
 {
-    temp = head;
-    while (temp != NULL)
+    if(head==NULL)
+        printf("\n Linked List Empty");
+    else
     {
-        printf("%d ", temp->data);
-        temp = temp->next;
+        temp = head;
+        while (temp != NULL)
+        {
+            printf("%d ", temp->data);
+            temp = temp->next;
+        }
     }
 }
 void insertion()

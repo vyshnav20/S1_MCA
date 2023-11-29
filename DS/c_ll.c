@@ -163,6 +163,10 @@ void delEnd()
 
 void delPos()
 {
+    if(head==NULL)
+        printf("\n Linked List Empty");
+    else
+    {
     temp = head;
     int pos,k=0;
     printf("Enter position to add node: ");
@@ -190,10 +194,15 @@ void delPos()
     }
     
     c--;
+    }
 }
 
 void search()
 {
+    if(head==NULL)
+        printf("\n Linked List Empty");
+    else
+    {
     temp = head;
     int s, pos = 1, c = 0;
     printf("\n Enter number to be searched: ");
@@ -212,16 +221,22 @@ void search()
         printf("\n%d is present in position %d of the linked list", s, pos);
     else
         printf("\n%d is not found in the linked list ", s);
+    }
 }
 
 void traverse()
 {
+    if(head==NULL)
+        printf("\n Linked List Empty");
+    else
+    {
     temp = head;
     do
     {
         printf("%d ", temp->data);
         temp = temp->next;
     } while (temp != head);
+    }
 }
 void insertion()
 {

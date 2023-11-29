@@ -141,6 +141,10 @@ void delEnd()
 
 void delPos()
 {
+    if(head==NULL)
+        printf("\n Linked List Empty");
+    else
+    {
     temp = head;
     int pos,k=0;
     printf("Enter position to delete node: ");
@@ -171,10 +175,15 @@ void delPos()
         free(temp);
     }
     c--;
+    }
 }
 
 void search()
 {
+    if(head==NULL)
+        printf("\n Linked List Empty");
+    else
+    {
     temp = head;
     int s, pos = 1, c = 0;
     printf("\n Enter number to be searched: ");
@@ -194,24 +203,35 @@ void search()
     else
         printf("\n%d is not found in the linked list ", s);
 }
+}
 
 void traverse()
 {
+    if(head==NULL)
+        printf("\n Linked List Empty");
+    else
+    {
     temp = head;
     while (temp != NULL)
     {
         printf("%d ", temp->data);
         temp = temp->next;
     }
+    }
 }
 
 void display_reverse()
 {
+    if(head==NULL)
+        printf("\n Linked List Empty");
+    else
+    {
     temp = tail;
     while (temp != NULL)
     {
         printf("%d ", temp->data);
         temp = temp->last;
+    }
     }
 }
 
