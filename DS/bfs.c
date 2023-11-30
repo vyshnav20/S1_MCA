@@ -48,7 +48,8 @@ void Enqueue(int val, int si, int a[si][si], int v[])
         for (int i = 0; i < si; i++)
         {
             if (a[val][i] == 1 && v[i] != 1)
-                Dequeue(si, a, v);
+                    
+                    Dequeue(si, a, v);
         }
     }
 }
