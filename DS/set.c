@@ -1,9 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 int max=10;
-int isDuplicate(int arr[],int v)
+int isDuplicate(int arr[],int v,int n)
 {
-    for (int i=0;i<max;i++)
+    for (int i=0;i<n;i++)
     {
         if(arr[i]==v)
         {
@@ -15,10 +15,10 @@ int isDuplicate(int arr[],int v)
     return 0;
 }
 
-int isUniversal(int U[],int v)
+int isUniversal(int U[],int v,int n)
 {
     int c=0;
-    for(int i = 0; i < max; i++)
+    for(int i = 0; i < n; i++)
         if(U[i]==v)
         {
             c=1;
@@ -77,11 +77,12 @@ void main()
     printf("Enter size of universal set: ");
     scanf("%d",&max);
     int U[max],A[max],B[max],BA[max],BB[max],union_set[max],intersection[max],v;
-    printf("Enter UNIVERSAL SET ELEMENTS: ");
+    printf("Enter UNIVERSAL SET ELEMENTS: \n");
     for (int i=0;i<max;i++)
     {
+        printf("Enter element %d: ",i+1);
         scanf("%d",&v);
-        if(isDuplicate(U,v)==0)
+        if(isDuplicate(U,v,i)==0)
             U[i]=v;
         else
             i--;
@@ -93,12 +94,18 @@ void main()
     }
     printf("\n\nEnter size of set A: ");
     scanf("%d",&sa);
-    printf("Enter SET A ELEMENTS: ");
+    if(sa>max)
+    {
+        printf("Size limit is %d-> Size is set as %d\n",max,max);
+        sa=max;
+    }
+    printf("Enter SET A ELEMENTS: \n");
     for (int i=0;i<sa;i++)
     {
+        printf("Enter element %d: ",i+1);
         scanf("%d",&v);
-        a=isDuplicate(A,v);
-        b=isUniversal(U,v);
+        a=isDuplicate(A,v,i);
+        b=isUniversal(U,v,max);
         if(a==0 && b==1)
             A[i]=v;
         else
@@ -115,12 +122,18 @@ void main()
     
     printf("\n\nEnter size of set B: ");
     scanf("%d",&sb);
-    printf("Enter SET B ELEMENTS: ");
+    if(sb>max)
+    {
+        printf("Size limit is %d-> Size is set as %d\n",max,max);
+        sb=max;
+    }
+    printf("Enter SET B ELEMENTS: \n");
     for (int i=0;i<sb;i++)
     {
+        printf("Enter element %d: ",i+1);
         scanf("%d",&v);
-        a=isDuplicate(B,v);
-        b=isUniversal(U,v);
+        a=isDuplicate(B,v,i);
+        b=isUniversal(U,v,max);
         if(a==0 && b==1)
             B[i]=v;
         else
