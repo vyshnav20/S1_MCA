@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 int MAX = 10, rear = -1, front = -1;
-int q[10];
-void Enqueue(int val, int si, int a[si][si], int v[]);
+int q[10],child[10],cno=0;
+void Enqueue(int si, int a[si][si], int v[]);
 void display()
 {
     if (rear == -1)
@@ -26,32 +26,44 @@ void Dequeue(int si, int a[si][si], int v[])
         if (front > rear)
         {
             front = rear = -1;
-        }
+        }        
+        int k=0;
+        cno=0;
         for (int i = 0; i < si; i++)
         {
             if (a[val][i] == 1 && v[i] != 1)
-                Enqueue(i, si, a, v);
+            {
+                child[k++]=i;
+                cno+=1;
+            }  
         }
+        
+        Enqueue(si, a, v);
     }
 }
 
-void Enqueue(int val, int si, int a[si][si], int v[])
+void Enqueue(int si, int a[si][si], int v[])
 {
-    if (v[val] != 1)
+    
+    for(int i=0;i<cno;i++)
+    {
+        if (v[child[i]] != 1)
     {
         if (rear == -1)
             front = 0;
         rear++;
-        q[rear] = val;
-        printf("%d ", val);
-        v[val] = 1;
-        for (int i = 0; i < si; i++)
-        {
-            if (a[val][i] == 1 && v[i] != 1)
-                    
-                    Dequeue(si, a, v);
-        }
+        q[rear] = child[i];
+        printf("%d ", child[i]);
+        v[child[i]] = 1;        
     }
+    }
+    for (int i = 0; i < si; i++)
+        {
+            if (a[q[front]][i] == 1 && v[i] != 1)
+                Dequeue(si, a, v);
+        }
+    
+    
 }
 
 void main()
@@ -70,5 +82,7 @@ void main()
     printf("Enter starting node (0-%d): ", (n - 1));
     scanf("%d", &start);
     printf("\nDFS Traversal: ");
-    Enqueue(start, n, a, v);
+    child[0]=start;
+    cno=1;
+    Enqueue(n, a, v);
 }
