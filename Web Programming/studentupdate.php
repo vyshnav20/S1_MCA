@@ -53,7 +53,7 @@ function display()
                 echo "<script>alert('Incorrect Password');</script>";
             else{
             
-                    echo "<form action='update.php' method='post'><input type='text' placeholder='Enter KTU ID' name='ktuid' value=".$rno."><input type='password' placeholder='Enter new password' name='pass'><br><input type='submit' value='Update' name='update'</form>";
+                echo "<center><form action='update.php' method='post'><label style='color: white;'>KTU ID: <input type='text' name='ktuid' value=".$rno."></label><br><label style='color: white;'>New Password: </label><input type='password' placeholder='Enter new password' name='pass'><br><label style='color: white;'>Phone Number: </label><input type='text' name='phno' value=".$row['Phno']." ><br><input type='submit' value='Update' name='update'></form></center>";
                 }
         } 
     }  
