@@ -42,8 +42,7 @@ void main()
                     {
                             min = A[i][j];
                             u = i;
-                            v = j;
-                        
+                            v = j;                        
                     }
                 }
             }
@@ -51,6 +50,7 @@ void main()
         cost += min;
         e += 1;
         V[v] = 1;
+        printf("Minimum Cost Spanning Tree\n");
         printf("Edge {%d,%d} = %d \n", N[u], N[v], min);
     }
     printf("Minimum Cost: %d\n", cost);
