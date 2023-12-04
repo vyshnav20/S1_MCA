@@ -28,7 +28,6 @@ void main()
     V[u] = 1;
     V[v] = 1;
     cost += A[u][v];
-    A[u][v] = 999;
     printf("Edge {%d,%d} = %d \n", N[u], N[v], min);
     while (e < n - 1)
     {
@@ -39,20 +38,17 @@ void main()
             {
                 if (V[i] == 1)
                 {
-                    if (A[i][j] < min)
+                    if (A[i][j] < min && V[j] != 1)
                     {
-                        if (V[j] != 1)
-                        {
                             min = A[i][j];
                             u = i;
                             v = j;
-                        }
+                        
                     }
                 }
             }
         }
         cost += min;
-        A[u][v] = 999;
         e += 1;
         V[v] = 1;
         printf("Minimum Cost Spanning Tree\n");
