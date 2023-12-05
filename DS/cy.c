@@ -1,37 +1,27 @@
 #include <stdio.h>
-#include <stdlib.h>
-int c = 0;
-void dfs(int n, int si, int a[si][si], int v[])
-{
-    if (v[n] != 1)
-    {
-        v[n] = 1;
-        for (int i = 0; i < si; i++)
-        {
-            if (a[n][i] == 1)
-            {
-                if (v[i] == 0)
-                    dfs(i, si, a, v);
-                else
-                {
-                    printf("%d hi %d hello ", i, n);
-                    c = 1;
-                }
-            }
-        }
-    }
-}
 
-void main()
-{
-    int v[5] = {0};
-    int a[5][5] = {999, 1, 999, 1, 999,
-                   999, 999, 1, 1, 999,
-                   999, 999, 999, 999, 999,
-                   999, 999, 1, 999, 1,
-                   999, 999, 999, 999, 999};
-    for (int i = 0; i < 5; i++)
-        dfs(i, 5, a, v);
-    if (c == 1)
-        printf("Cycle");
+int main() {
+    int matrix[4][2] = {{1, 2}, {2, 4}, {5, 6}, {4, 3}};
+    int new_element[2] = {1, 3};
+    int can_insert = 1;
+        
+    for (int i = 0; i < 4; i++) {
+        
+        if (matrix[i][1] == new_element[1] && matrix[i][0] != new_element[0]) {
+            printf("%d %d %d %d",matrix[i][1],matrix[i][0],new_element[1],new_element[0]);
+            can_insert = 0;
+            break;
+        }
+        printf("\n");
+    }
+
+    if (can_insert) {
+        matrix[4][0] = new_element[0];
+        matrix[4][1] = new_element[1];
+        printf("Element inserted successfully.\n");
+    } else {
+        printf("Element cannot be inserted.\n");
+    }
+
+    return 0;
 }
