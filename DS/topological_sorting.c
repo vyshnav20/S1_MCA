@@ -32,8 +32,8 @@ void main()
                 ts[i]=1;
                 printf("%d",i);
                 for(int j=0;j<n;j++)
-                    a[i][j]=0;
-                i=-1;
+                    a[i][j]=0;//remove all edges from the deleted vertex
+                i=-1;//if one vertex is removed then again begin loop (from i=0)
             }
                 
         }
