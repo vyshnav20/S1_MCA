@@ -1,69 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 int MAX = 10, rear = -1, front = -1;
-int q[10],child[10],cno=0;
-void Enqueue(int si, int a[si][si], int v[]);
-void display()
-{
-    if (rear == -1)
-        printf("\n QUEUE EMPTY!!!!");
-    else
-    {
-        printf("\n QUEUE ELEMENTS: ");
-        for (int i = front; i <= rear; i++)
-            printf("%d ", q[i]);
-    }
-}
-void Dequeue(int si, int a[si][si], int v[])
+int a[10];
+void Enqueue(int n)
 {
     int val;
-    if (front == -1)
-        printf("\n Empty");
-    else
-    {
-        val = q[front];
-        front++;
-        if (front > rear)
-        {
-            front = rear = -1;
-        }        
-        int k=0;
-        cno=0;
-        for (int i = 0; i < si; i++)
-        {
-            if (a[val][i] == 1 && v[i] != 1)
-            {
-                child[k++]=i;
-                cno+=1;
-            }  
-        }
-        
-        Enqueue(si, a, v);
-    }
-}
-
-void Enqueue(int si, int a[si][si], int v[])
-{
     
-    for(int i=0;i<cno;i++)
-    {
-        if (v[child[i]] != 1)
-    {
-        if (rear == -1)
+    if (rear == MAX - 1)
+        return;
+    if (rear == -1)
             front = 0;
-        rear++;
-        q[rear] = child[i];
-        printf("%d ", child[i]);
-        v[child[i]] = 1;        
+    rear++;
+    a[rear] = n;
     }
-    }
-    for (int i = 0; i < si; i++)
-        {
-            if (a[q[front]][i] == 1 && v[i] != 1)
-                Dequeue(si, a, v);
-        }
-    
-    
+
+
+int Dequeue()
+{
+    if (front == -1)
+        return -1;
+    int v = a[front];
+    front++;
+    return v;
+
 }
 
 void main()
@@ -82,7 +41,17 @@ void main()
     printf("Enter starting node (0-%d): ", (n - 1));
     scanf("%d", &start);
     printf("\nDFS Traversal: ");
-    child[0]=start;
-    cno=1;
-    Enqueue(n, a, v);
+    Enqueue(start);
+    v[start]=1;
+    while(front<=rear)
+    {
+        start=Dequeue();
+        printf("%d ",start);
+        for(int i=0; i<n;i++)
+            if(a[start][i]==1 && v[i]==0)
+            {
+                Enqueue(i);
+                v[i]=1;
+            }
+    }
 }

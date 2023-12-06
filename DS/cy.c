@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 int main() {
-    int matrix[4][2] = {{1, 2}, {2, 4}, {5, 6}, {4, 3}};
-    int new_element[2] = {1, 3};
+    int matrix[4][2] = {{0,1},{1,0},{3,5},{5,3}};
+    int new_element[2] = {2, 5};
     int can_insert = 1;
         
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 8; i++) {
         
         if (matrix[i][1] == new_element[1] && matrix[i][0] != new_element[0]) {
             printf("%d %d %d %d",matrix[i][1],matrix[i][0],new_element[1],new_element[0]);
