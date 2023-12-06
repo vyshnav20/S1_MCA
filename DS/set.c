@@ -71,6 +71,25 @@ void set_intersection(int a[],int b[],int c[])
     }
 }
 
+void set_difference(int a[],int b[])
+{
+    int c[max];
+    int k=0;
+    while(k!=max)
+    {
+        if(a[k]==1 && b[k]==0)
+            c[k]=1;
+        else
+            c[k]=0;
+        k++;
+    }
+    for(int i=0; i<max;i++)
+    {
+        printf("%d ",c[i]);
+    }
+}
+
+
 void main()
 {
     int a,b,sa,sb,k=0;
@@ -173,5 +192,11 @@ void main()
     {
         printf("%d ",intersection[i]);
     }
+
+    printf("\n\nSET DIFFERENCE (A-B): ");
+    set_difference(BA,BB);
+
+    printf("\n\nSET DIFFERENCE (B-A): ");
+    set_difference(BB,BA);
 
 }

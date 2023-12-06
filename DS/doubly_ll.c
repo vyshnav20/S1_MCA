@@ -47,13 +47,8 @@ void insertEnd()
     }
     else
     {
-        temp = head;
-        while (temp->next != NULL)
-        {
-            temp = temp->next;
-        }
-        temp->next = new;
-        new->last = temp;
+        tail->next = new;
+        new->last = tail;
         tail = new;
         printf("\n NODE ADDED!!! ");
     }
@@ -124,16 +119,15 @@ void delBegining()
 
 void delEnd()
 {
-    temp = head;
+    
     if(head==NULL)
     {
       printf ("Linked List Empty, nothing to delete\n");
       return;
     }
-    while(temp->next!=NULL)
-        temp=temp->next;
-    temp->last->next=NULL;
-    tail=temp->last;    
+    temp=tail;
+    tail=tail->last;    
+    tail->next=NULL;
     printf("\n %d is deleted from linked list!!!", temp->data);
     free(temp);
     c--;
@@ -149,11 +143,6 @@ void delPos()
     int pos,k=0;
     printf("Enter position to delete node: ");
     scanf("%d", &pos);
-    if(head==NULL)
-    {
-      printf ("Linked List Empty, nothing to delete\n");
-      return;
-    }
     if(pos==0)
         delBegining();
     else if(pos==c)
