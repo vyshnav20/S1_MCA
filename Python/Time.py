@@ -8,10 +8,10 @@ class Time:
         c._hour=self._hour+a._hour
         c._min=self._min+a._min
         c._sec=self._sec+a._sec
-        if(c._sec>60):
+        if(c._sec>=60):
             c._sec-=60
             c._min+=1
-        if(c._min>60):
+        if(c._min>=60):
             c._min-=60
             c._hour+=1
         return c

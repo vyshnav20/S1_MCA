@@ -8,6 +8,9 @@ class Rectangle:
     def peri(self):
         return (2*(self.a+self.b))
 
+
+
+
 r1=Rectangle(int(input("Enter length of rectangle 1: ")),int(input("Enter widht of rectangle 1: ")))
 r2=Rectangle(int(input("Enter length of rectangle 2: ")),int(input("Enter widht of rectangle 2: ")))
 
