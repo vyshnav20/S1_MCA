@@ -10,13 +10,18 @@
     </style>
     <script type="text/javascript">
  function showHide() {
-   var div = document.getElementById('a1');
-   if (div.style.display == 'none') {
-     div.style.display = '';
-   }
-   else {
-     div.style.display = 'none';
-   }
+    if((document.getElementById('pass').value)=="123")
+    {
+        var div = document.getElementById('a1');
+        if (div.style.display == 'none') {
+            div.style.display = '';
+        }
+        else {
+            div.style.display = 'none';
+        }
+    }
+    else
+        alert('Incorrect Password');
  }
 </script>
 </head>
@@ -30,7 +35,7 @@
             </tr>
             <tr>
                 <td>Password:</td>
-                <td><input type="password" placeholder="Enter Password" name="pass"></td>
+                <td><input type="password" placeholder="Enter Password" id="pass"></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="submit"  name="display" value="Login"/><br></td>
