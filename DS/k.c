@@ -1,78 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-int dfs(int n,int node, int target,int graph[n][n],int visited[]) {
-    visited[node] = 1;
-    for(int i = 0; i < n; i++) {
-        if(graph[node][i] == 1 && visited[i] == 0) {
-            if(i == target) {
-                return 1;
-            }
-            dfs(n,i, target,graph,visited);
-        }
-    }
-}
-
-void add_edge(int n,int u, int v,int graph[n][n]) {
-    graph[u][v] = 1;
-    graph[v][u] = 1;
-}
-
-int main() {
-    int n;
-    printf("Enter number of nodes: ");
-    scanf("%d", &n);
-    int A[n][n], N[n], cycle[n][n], V[n], cost = 0, u, v, min = 999, e = 1;
-    
-    for (int i = 0; i < n; i++)
+void main()
+{
+    int a[7][7]={0,1,1,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,1,1,0};
+    int v[7]={0,0,0,0,0,0,0};
+    int b[2]={3,4};
+    int c=0,k=0,l=b[0];
+    v[l]=1;
+    for(int i=0;i<7;i++)
     {
-        V[i]=0;
-        N[i] = i;
+        for(int j=0;j<7;j++)
+            printf("%d ",a[i][j]);
+        printf("\n");
     }
-    printf("Enter the cost adjacency matrix of the graph: ");
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-        {
-            cycle[i][j] = 0;
-            scanf("%d", &A[i][j]);
-            if (A[i][j] == 0)
-                A[i][j] = 999;
-            if (A[i][j] < min)
-            {
-                min = A[i][j];
-                u = i;
-                v = j;
-            }
-        }
-    cost += A[u][v];
-    A[u][v]=999;
-    A[v][u]=999;
-    add_edge(n,u,v,cycle);
-    printf("Edge {%d,%d} = %d \n", N[u], N[v], min);
-
-    while (e < n-1) {
-        min = 999;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (A[i][j] < min) {
-                    min = A[i][j];
-                    u = i;
-                    v = j;
+    for(int i=0;i<7;i++)
+    {
+           if(i==b[1] && a[l][i]==1)
+                {
+                    printf("Cycle");
+                    i=7;
                 }
+            else if(a[l][i]==1&&v[i]==0)
+            {
+                v[i]=1;
+                l=i;
+                i=-1;
             }
-        }
-        
-        if (dfs(n,u,v,cycle,V)==1) {
-            A[u][v] = 999;
-            A[v][u] = 999;
-        } else {
-            cost += A[u][v];
-            A[u][v] = 999;
-            A[v][u] = 999;
-            e++;
-            add_edge(n,u,v,cycle);
-            printf("Edge {%d,%d} = %d \n", N[u], N[v], min);
-        }
     }
-    printf("Minimum Cost: %d\n", cost);
 }
