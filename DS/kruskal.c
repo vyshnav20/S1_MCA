@@ -60,12 +60,7 @@ void main()
     int n;
     printf("Enter number of nodes: ");
     scanf("%d", &n);
-    int A[n][n], a[n][n],V[n], N[n], cost = 0, u, v, min = 999, e = 1;
-    for (int i = 0; i < n; i++)
-    {
-        V[i] = 0;
-        N[i] = i;
-    }
+    int A[n][n], a[n][n], cost = 0, u, v, min = 999, e = 1;
     printf("Enter the cost adjacency matrix of the graph: ");
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
@@ -88,7 +83,7 @@ void main()
     a[u][v]=1;
     a[v][u]=1;
     printf("\n Minimum cost spanning tree:\n");
-    printf("Edge {%d,%d} = %d \n", N[u], N[v], min);
+    printf("Edge {%d,%d} = %d \n", u, v, min);
     while (e <n-1)
     {
         min = 999;
@@ -112,7 +107,7 @@ void main()
             A[u][v] = 999;
             A[v][u] = 999;
             e += 1;
-            printf("Edge {%d,%d} = %d \n", N[u], N[v], min);
+            printf("Edge {%d,%d} = %d \n", u,v, min);
             a[u][v]=1;
             a[v][u]=1;
             front=-1;
