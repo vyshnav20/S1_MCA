@@ -101,6 +101,7 @@ void main()
                 }
             }
         }
+        //cycle functions checks if adding the edge u,v creates a cycle using bfs.
         if(cycle(u,v,n,a)==0)
         {
             cost += min;
