@@ -69,22 +69,11 @@ void main()
             scanf("%d", &A[i][j]);
             if (A[i][j] == 0)
                 A[i][j] = 999;
-            if (A[i][j] < min)
-            {
-                min = A[i][j];
-                u = i;
-                v = j;
-            }
             a[i][j]=0;
         }
-    cost += A[u][v];
-    A[u][v] = 999;
-    A[v][u] = 999;
-    a[u][v]=1;
-    a[v][u]=1;
+    
     printf("\n Minimum cost spanning tree:\n");
-    printf("Edge {%d,%d} = %d \n", u, v, min);
-    while (e <n-1)
+    while (e <n)
     {
         min = 999;
         for (int i = 0; i < n; i++)
