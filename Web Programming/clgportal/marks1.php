@@ -22,7 +22,7 @@
                 <td colspan="2"><select name="id">
                     <option value="">Select ktu id</option>
                     <?php
-                        $conn=mysqli_connect("localhost","root","Vyshnav@2002","student");
+                        $conn=mysqli_connect("localhost","root","cetmca","student");
                         $p=mysqli_query($conn,"select ktuid from ktu where sem=".$_POST['sem']);
                         while($r=mysqli_fetch_array($p))
                         {

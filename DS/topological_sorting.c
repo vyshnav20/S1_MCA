@@ -6,10 +6,10 @@ void main()
 	int n;
 	printf("Enter number of nodes: ");
 	scanf("%d",&n);
-	int a[n][n],ts[n];
+	int a[n][n],v[n];
 	printf("Enter adjacency matrix for a directed acyclic graph: ");
 	for(int i=0;i<n;i++)
-	{	ts[i]=0;
+	{	v[i]=0;
 		for(int j=0;j<n;j++)
 			scanf("%d",&a[i][j]);
 	}
@@ -17,7 +17,7 @@ void main()
     for(int i=0;i<n;i++)
     {
         c=0;
-        if(ts[i]==0)
+        if(v[i]==0)
         {
             for(int j=0;j<n;j++)
             {
@@ -29,7 +29,7 @@ void main()
             }
             if(c==0)
             {
-                ts[i]=1;
+                v[i]=1;
                 printf("%d",i);
                 for(int j=0;j<n;j++)
                     a[i][j]=0;//remove all edges from the deleted vertex
