@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Document</title>
+        <script>
+            var a=["https://t4.ftcdn.net/jpg/04/41/40/57/240_F_441405732_oZfBgYMlglPU4RBV4PFbsTJDoHW3I1Di.jpg","https://t3.ftcdn.net/jpg/05/60/30/40/240_F_560304045_GvutT9uQo7NjxPmD8EcD4rGNMQVDe38J.jpg","https://t4.ftcdn.net/jpg/05/12/64/51/240_F_512645152_VJUHBFUzLXp0qApk5qf08m6CNmb49c3O.jpg","https://t4.ftcdn.net/jpg/05/72/54/67/240_F_572546714_2mn39TUv2f5Lmg7JRT9yvSkuTJERGyg8.jpg"];
+            var i=0;
+            function vvv()
+            {
+                document.getElementById('i').src=a[i];
+                i+=1;
+                if(i==4)
+                    i=0;
+            }
+        </script>
+</head>
+<body>
+    <img id='i' src="https://t4.ftcdn.net/jpg/05/72/54/67/240_F_572546714_2mn39TUv2f5Lmg7JRT9yvSkuTJERGyg8.jpg"><br>
+    <button onclick="vvv()">Click me</button>
+</body>
+</html>
