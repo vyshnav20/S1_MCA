@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>Calendar</title>
+    <style>
+        .month {
+            display: inline-block;
+            margin: 10px;
+            vertical-align: top;
+        }
+    </style>
+    <script type="text/javascript">
+        function print(){
+            var year=document.getElementById('year').value;
+            var date = new Date(year, 0, 1); 
+            document.getElementById('h').innerText="Calander "+year;
+            var next_start=7-(date.getDay()%7);
+            var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+            var days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+            var month_days=[31,28,31,30,31,30,31,31,30,31,30,31];
+            if((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0)
+                month_days[1]=29
+            var calendarContainer = document.getElementById('cal-container');
+            calendarContainer.innerHTML = ""; // Clear previous content
+
+            for (var i = 0; i < 12; i++) {
+                var monthDiv = document.createElement('div');
+                monthDiv.className = 'month';
+
+                var cal=document.createElement('table');
+                cal.setAttribute('border', '1');
+                cal.setAttribute('cellspacing', '0');
+                cal.setAttribute('cellpadding', '0');
+                cal.setAttribute('width', '450px');
+
+                var trMonth = document.createElement('tr');
+                trMonth.style.backgroundColor='black';
+                var tdMonth = document.createElement('td');
+                tdMonth.setAttribute('colspan', '7');
+                tdMonth.setAttribute('align', 'center');
+                tdMonth.style.color="cyan";
+                tdMonth.textContent = months[i];
+                trMonth.appendChild(tdMonth);
+                cal.appendChild(trMonth);
+
+                var trDays = document.createElement('tr');
+                for (var day in days) {
+                    var tdDay = document.createElement('td');
+                    tdDay.textContent = days[day];
+                    trDays.appendChild(tdDay);
+                }
+                cal.appendChild(trDays);
+                var d=1,k=0,n=5;
+                for(var j=0; j<n;j++)
+                {
+                    var tr=document.createElement('tr');
+                    k=0;
+                    if(next_start!==0)
+                    {
+
+                        for(k=0; k<(7-next_start);k++)
+                        {
+                            var td=document.createElement('td'); 
+                            td.textContent ="";
+                            tr.appendChild(td);
+                        }
+                        while(k<7)
+                        {
+                            if(d<=month_days[i])                   
+                            {
+                                var td=document.createElement('td'); 
+                                td.textContent = d;
+                                tr.appendChild(td);
+                                d++;
+                            } 
+                            else
+                            {
+                                next_start+=1;
+                                var td=document.createElement('td'); 
+                                td.textContent ="";
+                                tr.appendChild(td);
+                            }
+                            k++;
+                        }
+                        next_start=0;
+                    }
+                    else
+                    {
+                        for(k=0; k<7;k++)
+                        {   
+                            if(d<=month_days[i])                   
+                            {
+                                var td=document.createElement('td'); 
+                                td.textContent = d;
+                                tr.appendChild(td);
+                                d++;
+                                if(j===4 && k==6 && d<=month_days[i])
+                                    n++;
+                            } 
+                            else
+                            {
+                                next_start+=1;
+                                var td=document.createElement('td'); 
+                                td.textContent ="";
+                                tr.appendChild(td);
+                                n=5;
+                            }
+                        }
+                    }
+                    
+                    cal.appendChild(tr);
+                    
+                }
+                if(next_start===7)
+                    next_start=0;
+                monthDiv.appendChild(cal);
+                calendarContainer.appendChild(monthDiv);
+            }
+        }
+    </script>
+</head>
+<body id="body">
+    <center>
+        <input type="text" id="year" placeholder="Enter a year"><br>
+        <button onclick="print()">Hello</button>
+        <h1 id="h"></h1>
+        <div id="cal-container""></div>
+    </center>
+</body>
+</html>
