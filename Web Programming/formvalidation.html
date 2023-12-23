@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check for No Digits</title>
+</head>
+<body>
+
+  <label for="myInput">Enter a value:</label>
+  <input type="text" id="myInput">
+  <button id="submitButton" disabled>Submit</button>
+
+  <script>
+    document.getElementById('myInput').addEventListener('input', function() {
+      var inputValue = this.value;
+      var hasDigits = /\d/.test(inputValue);
+
+      if (hasDigits) {
+        alert('The value should not contain digits!');
+        // Optionally, you can clear the input field or handle it in another way
+        this.value = '';
+      }
+
+      // Enable or disable the submit button based on whether there are digits
+      document.getElementById('submitButton').disabled = hasDigits;
+    });
+  </script>
+
+</body>
+</html>

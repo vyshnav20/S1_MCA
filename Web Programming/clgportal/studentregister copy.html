@@ -27,21 +27,7 @@
         }
     </style>
 
-<script>
-        function validate()
-        {
-            var name=document.forms['form']['fname'].value;
-            if (name == "") 
-            {
-                alert("Name must be filled out");
-            }
-            if (/\d/.test(name) == true) 
-            {
-                alert("Name must not contain numbers");                
-            } 
-        }
-                    
-    </script>   
+  
 </head>
 <body>
     <marquee style="background-color: aqua;" behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()"><h1>Student Registration!!</h1></marquee>
@@ -55,7 +41,7 @@
                 </tr>
                 <tr>
                     <td id="r">Name: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter full name" name="fname"></td>
+                    <td colspan="2"><input type="text" placeholder="Enter full name" name="fname" id="fname"></td>
                 </tr>
                 <tr>
                     <td id="r">Age: </td>
@@ -72,7 +58,7 @@
                 </tr>
                 <tr>
                     <td id="r">Password: </td>
-                    <td colspan="2"><input type="password" placeholder="Enter password" name="pass"></td>
+                    <td colspan="2"><input type="password" placeholder="Enter password" name="pass" id="pass"></td>
                 </tr>
                 <tr>
                     <td id="r">Re-enter Password: </td>
@@ -80,7 +66,7 @@
                 </tr>
                 <tr>
                     <td id="r">KTU ID: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter KTU ID" name="ktuid"></td>
+                    <td colspan="2"><input type="text" placeholder="Enter KTU ID" name="ktuid" id="ktuid"></td>
                 </tr>
                 <tr>
                     <td id="r">Roll Number: </td>
@@ -103,50 +89,37 @@
                 </tr>
                 <tr>
                     <td id="r">Phone Number: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter phone number" name="phno" ></td>
+                    <td colspan="2"><input type="text" placeholder="Enter phone number" name="phno" id="phno"></td>
                 </tr>
                 <tr style="text-align: center;">
                     <td><input type="reset"></td>
-                    <td colspan="2"><input type="submit"  onclick= "validate()" name="insert"></td>
+                    <td colspan="2"><input type="submit"  name="insert"></td>
                 </tr>
             </table>
         </form>
-        </div>
-        
-    </center>
-    
-</body>
-<?php
-$conn=mysqli_connect("localhost","root","cetmca","student");
-if(!$conn) 
-{
-    echo mysqli_connect_error();
-} 
-else 
-{        
-    $name = $_POST['fname'];
-    $age = $_POST['age'];
-    $pass = $_POST['pass'];
-    $repass = $_POST['repass'];
-    $ktuid = $_POST['ktuid'];
-    $sem = $_POST['sem'];
-    $rno = $_POST['rno'];
-    $email = $_POST['email'];
-    $phno = $_POST['phno'];
+    </div>
+</center>
 
-    // Check if passwords match
-    if ($pass != $repass) {
-        echo "<script>alert('Retyped password does not match');</script>";
-        
-    } else {
-        $q = "insert into ktu values('$name', '$age', '$pass', '$ktuid', '$phno', '$sem', '$rno', '$email')";
-        $p = mysqli_query($conn, $q);
-
-        if ($p) {
-            header("location: studentlogin.php");
+<script>
+    document.getElementById('fname').addEventListener('input', function () {
+        var name = this.value;
+        if (/\d/.test(name)) {
+            alert("Name must not contain numbers");
+            this.value = '';
         }
-    }
-} 
-
-
-?>
+    });
+    document.getElementById('phno').addEventListener('input', function () {
+        var phno = this.value;
+        if (/[a-zA-Z]/.test(phno)) {
+            alert("Phone number cannot contain alphabets");
+            this.value = '';
+        }
+        if(phno.length>10)
+        {
+            alert("Invalid Phone Number");
+            this.value = '';
+        }
+    });
+</script>
+</body>
+</html>

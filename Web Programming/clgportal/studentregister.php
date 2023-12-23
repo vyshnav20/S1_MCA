@@ -26,20 +26,22 @@
             font-size: 15;
         }
     </style>
+
+  
 </head>
 <body>
     <marquee style="background-color: aqua;" behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()"><h1>Student Registration!!</h1></marquee>
     <hr>
     <center>
         <div class="form" style="background-color: rgb(0, 0, 0);">
-            <form method="post" action="studentregister.php">
+            <form method="post" action="studentregister.php" name='form'>
             <table border="1" cellspacing="0" cellpadding="5" width="75%" >
                 <tr>
                     <td colspan="3" style="text-align: center;"><h2 style="color: aqua;">Regitration Form</h2></td>
                 </tr>
                 <tr>
                     <td id="r">Name: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter full name" name="fname"></td>
+                    <td colspan="2"><input type="text" placeholder="Enter full name" name="fname" id="fname"></td>
                 </tr>
                 <tr>
                     <td id="r">Age: </td>
@@ -56,7 +58,7 @@
                 </tr>
                 <tr>
                     <td id="r">Password: </td>
-                    <td colspan="2"><input type="password" placeholder="Enter password" name="pass"></td>
+                    <td colspan="2"><input type="password" placeholder="Enter password" name="pass" id="pass"></td>
                 </tr>
                 <tr>
                     <td id="r">Re-enter Password: </td>
@@ -64,7 +66,7 @@
                 </tr>
                 <tr>
                     <td id="r">KTU ID: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter KTU ID" name="ktuid"></td>
+                    <td colspan="2"><input type="text" placeholder="Enter KTU ID" name="ktuid" id="ktuid"></td>
                 </tr>
                 <tr>
                     <td id="r">Roll Number: </td>
@@ -87,19 +89,40 @@
                 </tr>
                 <tr>
                     <td id="r">Phone Number: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter phone number" name="phno" ></td>
+                    <td colspan="2"><input type="text" placeholder="Enter phone number" name="phno" id="phno"></td>
                 </tr>
                 <tr style="text-align: center;">
                     <td><input type="reset"></td>
-                    <td colspan="2"><input type="submit" name="insert"></td>
+                    <td colspan="2"><input type="submit"  name="insert"></td>
                 </tr>
             </table>
         </form>
-        </div>
-        
-    </center>
-    
+    </div>
+</center>
+
+<script>
+    document.getElementById('fname').addEventListener('input', function () {
+        var name = this.value;
+        if (/\d/.test(name)) {
+            alert("Name must not contain numbers");
+            this.value = '';
+        }
+    });
+    document.getElementById('phno').addEventListener('input', function () {
+        var phno = this.value;
+        if (/[a-zA-Z]/.test(phno)) {
+            alert("Phone number cannot contain alphabets");
+            this.value = '';
+        }
+        if(phno.length>10)
+        {
+            alert("Invalid Phone Number");
+            this.value = '';
+        }
+    });
+</script>
 </body>
+</html>
 <?php
 $conn=mysqli_connect("localhost","root","cetmca","student");
 if(!$conn) 

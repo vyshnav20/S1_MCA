@@ -8,7 +8,7 @@ void fn(int n, int A[n][n], int V[], int D[], int start, int u)
     D[start] = 0;
     for (int i = 0; i < n; i++)
     {
-        if (A[u][i] != 999)
+        if (A[u][i] != 0)
         {
             
             if ((D[u] + A[u][i]) < D[i])
@@ -50,8 +50,6 @@ void main()
         for (int j = 0; j < n; j++)
         {
             scanf("%d", &A[i][j]);
-            if (A[i][j] == 0)
-                A[i][j] = 999;
         }
     printf("Enter starting node: ");
     scanf("%d", &start);
