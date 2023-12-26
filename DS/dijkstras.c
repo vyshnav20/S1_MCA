@@ -2,8 +2,7 @@
 #include <stdlib.h>
 void fn(int n, int A[n][n], int V[], int D[], int start, int u)
 {
-    
-    V[start] = 1;
+   V[start] = 1;
     V[u]=1;
     D[start] = 0;
     for (int i = 0; i < n; i++)
