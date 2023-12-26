@@ -38,11 +38,10 @@ void main()
     int n;
     printf("Enter number of nodes: ");
     scanf("%d", &n);
-    int A[n][n], V[n], D[n], N[n], u, v, start;
+    int A[n][n], V[n], D[n], u, v, start;
     for (int i = 0; i < n; i++)
     {
         V[i] = 0;
-        N[i] = i;
         D[i] = 999;
     }
     printf("Enter the cost adjacency matrix of the graph: ");
