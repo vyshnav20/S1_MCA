@@ -1,3 +1,8 @@
 # S1-MCA
 ## Web-Javascript
-1. [String and Numeric Functions]([https://vyshnav.github.com/](https://github.com/vyshnav20/S1_MCA/blob/main/Web%20Programming/predifinedfns.html)https://github.com/vyshnav20/S1_MCA/blob/main/Web%20Programming/predifinedfns.html).
+1. [String and Numeric Functions](Web%20Programming/predifinedfns.html)
+2. [Change Background Colour](Web%20Programming/backgroundcolor.html)
+3. [Change image on hover](Web%20Programming/changeimage.html)
+4. [Calendar](Web%20Programming/calendar.html)
+
+
