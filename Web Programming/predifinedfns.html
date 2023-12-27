@@ -3,7 +3,7 @@
 <head>
     <title>Document</title>
     <script>
-        var a=5;
+        /*
         document.write(Math.PI);
         document.write("<br>");
         document.write(Math.pow(a,2));
@@ -15,10 +15,53 @@
         document.write("<br>");    
         document.write(s.slice(-1));
         document.write("<br>");    
-        document.write(s.substring(2,7));
+        document.write(s.substring(2,7));*/
+        function num()
+        {
+            var n= document.getElementById("n").value;
+            document.getElementById("num1").innerHTML= "Math.pow("+n+",2) = "+Math.pow(n,2)+"<br>"+
+                                                        "Math.abs("+n+") = "+Math.abs(n)+"<br>"+
+                                                        "Math.ceil("+n+") = "+Math.ceil(n)+"<br>"+
+                                                        "Math.floor("+n+") = "+Math.floor(n)+"<br>"+
+                                                        "Math.sqrt("+n+") = "+Math.sqrt(n)+"<br>";
+        }
+
+        function str()
+        {
+            var n= document.getElementById("s").value;
+            document.getElementById("num2").innerHTML= "Length(.length) = "+n.length+"<br>"+
+                                                        "Uppercase(.toUpperCase()) = "+n.toUpperCase()+"<br>"+
+                                                        "Lowercase(.toLowerCase()) = "+n.toLowerCase()+"<br>"+
+                                                        "Substring(.substring(3,7)) = "+n.substring(3,7)+"<br>"+
+                                                        "IndexOf(.indexOf('World')) = "+n.indexOf('World')+"<br>"+
+                                                        "Split(.split(' ')) = "+n.split(' ')+"<br>";
+        }
+        
     </script>
+    <style>
+        .div1{
+            display:flex;
+            flex-direction:row;
+        }
+        .div2{
+            width:50%;
+        }
+    </style>
 </head>
 <body>
-
+    <div class="div1">
+        <div class="div2">
+            <h1>Numeric Functions</h1>
+            <input type="text" placeholder="Enter a number" id="n">
+            <button onclick="num()">Numeric Funtions</button>
+            <p id="num1"></p>
+        </div>
+        <div>
+            <h1>String Functions</h1>
+            <input type="text" placeholder="Enter a string" id="s">
+            <button onclick="str()">String Funtions</button>
+            <p id="num2"></p>
+        </div>
+    </div>
 </body>
 </html>
