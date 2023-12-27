@@ -21,6 +21,8 @@
 
 ## Web
 [College Portal](Web%20Programming/clgportal/portal.html)
+[College Portal](https://vyshnav20.github.io/S1_MCA/Web%20Programming/clgportal/portal.html)
+
 ### Javascript
 1. [String and Numeric Functions](Web%20Programming/predifinedfns.html)
 2. [Change Background Colour](Web%20Programming/backgroundcolor.html)
