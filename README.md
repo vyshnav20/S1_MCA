@@ -20,7 +20,7 @@
 17. [DFS](DS/dfs.c)
 
 ## Web
-[College Portal](Web%20Programming/clgportal/portal.html)
+[College Portal](Web%20Programming/clgportal/)
 ### Javascript
 1. [String and Numeric Functions](Web%20Programming/predifinedfns.html)
 2. [Change Background Colour](Web%20Programming/backgroundcolor.html)
