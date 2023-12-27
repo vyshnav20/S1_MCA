@@ -40,7 +40,7 @@ void main()
     }
     printf("Enter starting node (0-%d): ", (n - 1));
     scanf("%d", &start);
-    printf("\nDFS Traversal: ");
+    printf("\nBFS Traversal: ");
     Enqueue(start);
     v[start]=1;
     while(front<=rear)
