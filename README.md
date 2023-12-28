@@ -19,6 +19,9 @@
 16. [BFS](DS/bfs.c)
 17. [DFS](DS/dfs.c)
 
+## Python
+[Python Lab](Python/PythonLab.ipynb)
+
 ## Web
 [College Portal](Web%20Programming/clgportal/portal.html)
 
