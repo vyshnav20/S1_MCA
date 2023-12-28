@@ -6,22 +6,23 @@
         function num()
         {
             var n= document.getElementById("n").value;
-            document.getElementById("num1").innerHTML= "Math.pow("+n+",2) = "+Math.pow(n,2)+"<br>"+
-                                                        "Math.abs("+n+") = "+Math.abs(n)+"<br>"+
-                                                        "Math.ceil("+n+") = "+Math.ceil(n)+"<br>"+
-                                                        "Math.floor("+n+") = "+Math.floor(n)+"<br>"+
-                                                        "Math.sqrt("+n+") = "+Math.sqrt(n)+"<br>";
+            document.getElementById("num1").innerHTML= "Math.pow("+n+",2) [Returns the result of raising x to the power of 2] = "+Math.pow(n,2)+"<br><br>"+
+                                                        "Math.abs("+n+")[Returns the absolute value of a number] = "+Math.abs(n)+"<br><br>"+
+                                                        "Math.ceil("+n+") [Rounds a number up to the nearest integer] = "+Math.ceil(n)+"<br><br>"+
+                                                        "Math.floor("+n+") [Rounds a number down to the nearest integer] = "+Math.floor(n)+"<br><br>"+
+                                                        "Math.sqrt("+n+") [Returns the square root of a number] = "+Math.sqrt(n)+"<br>";
         }
 
         function str()
         {
             var n= document.getElementById("s").value;
-            document.getElementById("num2").innerHTML= "Length(.length) = "+n.length+"<br>"+
-                                                        "Uppercase(.toUpperCase()) = "+n.toUpperCase()+"<br>"+
-                                                        "Lowercase(.toLowerCase()) = "+n.toLowerCase()+"<br>"+
-                                                        "Substring(.substring(3,7)) = "+n.substring(3,7)+"<br>"+
-                                                        "IndexOf(.indexOf('World')) = "+n.indexOf('World')+"<br>"+
-                                                        "Split(.split(' ')) = "+n.split(' ')+"<br>";
+            document.getElementById("num2").innerHTML= "String s="+n+"<br>Length(s.length) = "+n.length+"<br><br>"+
+                                                        "charAt  Returns the character at the specified index in a string (s.charAt(0)) = "+n.charAt(0)+"<br><br>"+
+                                                        "Uppercase Converts a string to uppercase (s.toUpperCase()) = "+n.toUpperCase()+"<br><br>"+
+                                                        "Lowercase Converts a string to lowercase (s.toLowerCase()) = "+n.toLowerCase()+"<br><br>"+
+                                                        "Substring Returns a substring based on the specified start and end indices (s.substring(3,7)) = "+n.substring(3,7)+"<br><br>"+
+                                                        "IndexOf Returns the index of the first occurrence of a specified substring (s.indexOf('World')) = "+n.indexOf('World')+"<br><br>"+
+                                                        "Split Splits a string into an array of substrings based on a specified separator (s.split(' ')) = "+n.split(' ')+"<br>";
         }
         
     </script>
@@ -31,7 +32,7 @@
             flex-direction:row;
         }
         .div2{
-            width:50%;
+            width:65%;
         }
     </style>
 </head>

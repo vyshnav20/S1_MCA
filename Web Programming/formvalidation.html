@@ -25,6 +25,9 @@
             color: aqua;
             font-size: 15;
         }
+        .container{
+    display:flex;
+    flex-direction: row;}
     </style>
 
   
@@ -33,49 +36,52 @@
     <marquee style="background-color: aqua;" behavior="scroll" onmouseover="this.stop()" onmouseout="this.start()"><h1>Student Registration!!</h1></marquee>
     <hr>
     <center>
-        <div class="form" style="background-color: rgb(0, 0, 0);">
-            <form method="post" action="studentregister.php" name='form'>
+        <div class="container"style="background-color: rgb(0, 0, 0);">
+        <div class="form" style="width:1450px">
+            <form method="post" action="https://www.youtube.com/" name='form' id="form" onclick="return validate()"> 
             <table border="1" cellspacing="0" cellpadding="5" width="75%" >
                 <tr>
                     <td colspan="3" style="text-align: center;"><h2 style="color: aqua;">Regitration Form</h2></td>
                 </tr>
                 <tr>
                     <td id="r">Name: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter full name" name="fname" id="fname"></td>
+                    <td><input type="text" placeholder="Enter full name" name="fname" id="fname" required></td>
+                    <td id='n' style="color:red;" hidden></td>
                 </tr>
                 <tr>
                     <td id="r">Age: </td>
                     <td colspan="2">
-                        <select name="age">
+                        <select name="age" id="age">
                             <option value="">Select Age</option>
-                            <?php
-                            for($i=19;$i<31;$i++)
-                            {
-                                echo"<option value=".$i.">".$i."</option>";
-                            }
-                            ?>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select></td>
                 </tr>
                 <tr>
                     <td id="r">Password: </td>
-                    <td colspan="2"><input type="password" placeholder="Enter password" name="pass" id="pass"></td>
+                    <td><input type="password" placeholder="Enter password" name="pass" id="pass" required></td>
+                    <td id='p' style="color:red;" hidden></td>
                 </tr>
                 <tr>
                     <td id="r">Re-enter Password: </td>
-                    <td colspan="2"><input type="password" placeholder="Re-enter password" name="repass"></td>
+                    <td><input type="password" placeholder="Re-enter password" id="repass" name="repass" required></td>
+                    <td id='ip' style="color:red;" hidden>Password doesn't match</td>
                 </tr>
                 <tr>
                     <td id="r">KTU ID: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter KTU ID" name="ktuid" id="ktuid"></td>
+                    <td colspan="2"><input type="text" placeholder="Enter KTU ID" name="ktuid" id="ktuid" required></td>
+                    <td id='kid' style="color:red;" hidden></td>
                 </tr>
                 <tr>
                     <td id="r">Roll Number: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter Roll Number" name="rno"></td>
+                    <td colspan="2"><input type="text" placeholder="Enter Roll Number" name="rno" required></td>
                 </tr
                 >
                 <tr>
                     <td id="r">Semester: </td>
-                    <td colspan="2"><select name="sem">
+                    <td colspan="2"><select name="sem" id="sem">
                         <option value="">Select Semester</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -85,41 +91,170 @@
                 </tr>
                 <tr>
                     <td id="r">Email ID: </td>
-                    <td colspan="2"><input type="email" placeholder="Enter email id" name="email" ></td>
+                    <td colspan="2"><input type="email" placeholder="Enter email id" name="email" required></td>
                 </tr>
                 <tr>
                     <td id="r">Phone Number: </td>
-                    <td colspan="2"><input type="text" placeholder="Enter phone number" name="phno" id="phno"></td>
+                    <td><input type="text" placeholder="Enter phone number" name="phno" id="phno" required></td>
+                    <td id='ph' style="color:red;" hidden></td>
                 </tr>
                 <tr style="text-align: center;">
                     <td><input type="reset"></td>
-                    <td colspan="2"><input type="submit"  name="insert"></td>
+                    <td colspan="2"><input type="submit" name="insert"></td>
                 </tr>
             </table>
         </form>
     </div>
+    <div class="error" style="position: relative; top: 150px;">
+        <p id='error' style="color:red;"></p>
+
+    </div>
+    </div>
+        
 </center>
 
 <script>
-    document.getElementById('fname').addEventListener('input', function () {
-        var name = this.value;
-        if (/\d/.test(name)) {
-            alert("Name must not contain numbers");
-            this.value = '';
-        }
-    });
-    document.getElementById('phno').addEventListener('input', function () {
-        var phno = this.value;
-        if (/[a-zA-Z]/.test(phno)) {
-            alert("Phone number cannot contain alphabets");
-            this.value = '';
-        }
-        if(phno.length>10)
+
+    function validate_name()
+    {
+        var n=document.getElementById('fname').value;
+        if(n.length==0 || /\d/.test(n))
         {
-            alert("Invalid Phone Number");
-            this.value = '';
+            document.getElementById('error').innerHTML = 'Invalid name';
+            document.getElementById('error').style.display = 'block';
+            return false;
         }
-    });
+        else
+        {
+            document.getElementById('error').innerHTML = '';
+            document.getElementById('error').style.display = 'none'; 
+            return true; 
+        }
+        
+    }
+
+    function validate_age()
+    {
+        var n=document.getElementById('age').value;
+        if(n=="")
+        {
+            document.getElementById('error').innerHTML = 'Select age';
+            document.getElementById('error').style.display = 'block';
+            return false;
+        }
+        else
+        {
+            document.getElementById('error').innerHTML = '';
+            document.getElementById('error').style.display = 'none'; 
+            return true; 
+        }
+    }
+
+    function validate_pass()
+    {
+        var n=document.getElementById('pass').value;
+        if(n.length==0)
+        {
+            document.getElementById('error').innerHTML = 'Password cannot be empty';
+            document.getElementById('error').style.display = 'block';
+            return false;
+        }
+        if(/[A-Z]/.test(n)==false)
+        {
+            document.getElementById('error').innerHTML = 'Password should contain a capital letter';
+            document.getElementById('error').style.display = 'block';
+            return false;
+        }
+        else
+        {
+            document.getElementById('error').innerHTML = '';
+            document.getElementById('error').style.display = 'none'; 
+            return true; 
+        }
+    }
+
+    function validate_repass()
+    {
+        var rp=document.getElementById('repass').value;
+        var p=document.getElementById('pass').value;
+        if(p===rp)
+        {
+            document.getElementById('error').innerHTML = '';
+            document.getElementById('error').style.display = 'none'; 
+            return true;             
+        }
+        else
+        {
+            document.getElementById('error').innerHTML = 'Password does not match';
+            document.getElementById('error').style.display = 'block';
+            return false;
+        }
+    }
+
+    function validate_id()
+    {
+        var n=document.getElementById('ktuid').value;
+        if(n.startsWith('TVE')==false || n.length !=13 )
+        {
+            document.getElementById('error').innerHTML = 'Invalid KTU ID';
+            document.getElementById('error').style.display = 'block';
+            return false;
+        }
+        else
+        {
+            document.getElementById('error').innerHTML = '';
+            document.getElementById('error').style.display = 'none'; 
+            return true; 
+        }
+    }
+
+    function validate_sem()
+    {
+        var n=document.getElementById('sem').value;
+        if(n=="")
+        {
+            document.getElementById('error').innerHTML = 'Select semester';
+            document.getElementById('error').style.display = 'block';
+            return false;
+        }
+        else
+        {
+            document.getElementById('error').innerHTML = '';
+            document.getElementById('error').style.display = 'none'; 
+            return true; 
+        }
+    }
+
+    function validate_phone()
+    {
+        var n=document.getElementById('phno').value;
+        if (/[^0-9]/.test(n))
+        {
+            document.getElementById('error').innerHTML = 'Phone Number can have only digits';
+            document.getElementById('error').style.display = 'block';
+            return false;
+        }
+        if (n.length != 10) 
+        {
+            document.getElementById('error').innerHTML = 'Invalid Phone Number';
+            document.getElementById('error').style.display = 'block';
+            return false;
+        } 
+        else
+        {
+            document.getElementById('error').innerHTML = '';
+            document.getElementById('error').style.display = 'none'; 
+            return true; 
+        }
+    }
+
+    function validate()
+    {
+        if(validate_name()&&validate_age()&&validate_pass()&&validate_repass()&&validate_id()&&validate_sem()&&validate_phone())
+            return true;
+        else return false;
+    }
+
 </script>
 </body>
 </html>
