@@ -1,7 +1,7 @@
 <?php
 session_start();
 $u=$_SESSION['username'];
-$con=mysqli_connect('localhost','root','Vyshnav@2002','student');
+$con=mysqli_connect('localhost','root','password','student');
 $s1=mysqli_query($con,"select * from book where username='$u'");
 if(mysqli_num_rows($s1))
 {

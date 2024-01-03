@@ -20,7 +20,7 @@ function submit()
     $u=$_POST['u'];
     $pass=$_POST['pass'];
     $_SESSION['username']=$u;
-    $con=mysqli_connect('localhost','root','Vyshnav@2002','student');
+    $con=mysqli_connect('localhost','root','password','student');
     $r=mysqli_query($con,"select * from user where username='$u'");
     if(!mysqli_num_rows($r))
         echo "<script>alert('Invalid username');</script>";

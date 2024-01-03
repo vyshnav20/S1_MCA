@@ -80,7 +80,7 @@ if(array_key_exists('insert',$_POST))
 
 
 function insert() {
-    $con=mysqli_connect('localhost','root','Vyshnav@2002','student');
+    $con=mysqli_connect('localhost','root','password','student');
     $id=$_POST['book_id'];
     $name=$_POST['bname'];
     $author=$_POST['author'];
