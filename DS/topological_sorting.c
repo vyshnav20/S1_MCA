@@ -3,16 +3,16 @@
 int c=0;
 void main()
 {
-	int n;
-	printf("Enter number of nodes: ");
-	scanf("%d",&n);
-	int a[n][n],v[n];
-	printf("Enter adjacency matrix for a directed acyclic graph: ");
-	for(int i=0;i<n;i++)
-	{	v[i]=0;
-		for(int j=0;j<n;j++)
-			scanf("%d",&a[i][j]);
-	}
+    int n;
+    printf("Enter number of nodes: ");
+    scanf("%d",&n);
+    int a[n][n],v[n];
+    printf("Enter adjacency matrix for a directed acyclic graph: ");
+    for(int i=0;i<n;i++)
+    {	v[i]=0;
+        for(int j=0;j<n;j++)
+            scanf("%d",&a[i][j]);
+    }
     printf("\n Topological Sorting\n");
     for(int i=0;i<n;i++)
     {
@@ -41,5 +41,5 @@ void main()
     
     }
 }    
-	
-	
+    
+    

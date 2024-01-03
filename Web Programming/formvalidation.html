@@ -13,7 +13,7 @@
         input[type="text"],input[type="password"],input[type="email"]{
             background-color:rgba(0,0, 0,0.5);
             color: aqua;
-            font-size: 15;
+            font-size: 15;  
             width: 100%;
         }
         table{
@@ -121,13 +121,11 @@
         if(n.length==0 || /\d/.test(n))
         {
             document.getElementById('error').innerHTML = 'Invalid name';
-            document.getElementById('error').style.display = 'block';
             return false;
         }
         else
         {
             document.getElementById('error').innerHTML = '';
-            document.getElementById('error').style.display = 'none'; 
             return true; 
         }
         
@@ -136,16 +134,15 @@
     function validate_age()
     {
         var n=document.getElementById('age').value;
+        var e=document.getElementById('error');
         if(n=="")
         {
-            document.getElementById('error').innerHTML = 'Select age';
-            document.getElementById('error').style.display = 'block';
+            e.innerHTML = 'Select age';
             return false;
         }
         else
         {
             document.getElementById('error').innerHTML = '';
-            document.getElementById('error').style.display = 'none'; 
             return true; 
         }
     }
@@ -153,22 +150,19 @@
     function validate_pass()
     {
         var n=document.getElementById('pass').value;
-        if(n.length==0)
+        if(n.length!=8)
         {
-            document.getElementById('error').innerHTML = 'Password cannot be empty';
-            document.getElementById('error').style.display = 'block';
+            document.getElementById('error').innerHTML = 'Password must be 8 digits';
             return false;
         }
         if(/[A-Z]/.test(n)==false)
         {
             document.getElementById('error').innerHTML = 'Password should contain a capital letter';
-            document.getElementById('error').style.display = 'block';
             return false;
         }
         else
         {
             document.getElementById('error').innerHTML = '';
-            document.getElementById('error').style.display = 'none'; 
             return true; 
         }
     }
@@ -180,13 +174,11 @@
         if(p===rp)
         {
             document.getElementById('error').innerHTML = '';
-            document.getElementById('error').style.display = 'none'; 
             return true;             
         }
         else
         {
             document.getElementById('error').innerHTML = 'Password does not match';
-            document.getElementById('error').style.display = 'block';
             return false;
         }
     }
@@ -197,13 +189,11 @@
         if(n.startsWith('TVE')==false || n.length !=13 )
         {
             document.getElementById('error').innerHTML = 'Invalid KTU ID';
-            document.getElementById('error').style.display = 'block';
             return false;
         }
         else
         {
             document.getElementById('error').innerHTML = '';
-            document.getElementById('error').style.display = 'none'; 
             return true; 
         }
     }
@@ -214,13 +204,11 @@
         if(n=="")
         {
             document.getElementById('error').innerHTML = 'Select semester';
-            document.getElementById('error').style.display = 'block';
             return false;
         }
         else
         {
             document.getElementById('error').innerHTML = '';
-            document.getElementById('error').style.display = 'none'; 
             return true; 
         }
     }
@@ -231,19 +219,16 @@
         if (/[^0-9]/.test(n))
         {
             document.getElementById('error').innerHTML = 'Phone Number can have only digits';
-            document.getElementById('error').style.display = 'block';
             return false;
         }
         if (n.length != 10) 
         {
             document.getElementById('error').innerHTML = 'Invalid Phone Number';
-            document.getElementById('error').style.display = 'block';
             return false;
         } 
         else
         {
             document.getElementById('error').innerHTML = '';
-            document.getElementById('error').style.display = 'none'; 
             return true; 
         }
     }
