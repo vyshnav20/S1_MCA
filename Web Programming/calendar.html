@@ -13,6 +13,7 @@
     <script>
         function cal()
         {
+
             var monthdays=[31,28,31,30,31,30,31,31,30,31,30,31]
             var months=["January", "February", "March", "April", "May","June", "July", "August", "September", "October", "November","December"];
             var wdays=['Sun', 'Mon', 'Tue', 'Wed', 'Thu','Fri','Sat'];
@@ -20,6 +21,7 @@
             if((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0)
                 monthdays[1]=29;
             var cont=document.getElementById("cal");
+            cont.innerHTML="";
             for(var i=0; i<12; i++)
             {
                 var sdate=(new Date(year,i,1)).getDay();
@@ -56,7 +58,15 @@
                             sdate-=1;
                         }
                         else if(k>monthdays[i])
-                            day.textContent="";    
+                            day.textContent="";   
+                        
+                        else if(w==4 && n==6 && k!=monthdays[i])
+                        {
+                            w-=1;
+                            day.textContent=k;
+                            k++;
+                        }
+                            
                         else
                         {
                             day.textContent=k;
