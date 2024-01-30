@@ -18,7 +18,8 @@
 15. [Topologicaal Sorting](DS/topological_sorting.c)
 16. [BFS](DS/bfs.c)
 17. [DFS](DS/dfs.c)
-18. [Stack using linked lust](DS/stack_linkedlist.c)
+18. [Stack using linked list](DS/stack_linkedlist.c)
+19. [Queue using linked list](DS/queue_linked_list.c)
 
 ## Python
 [Python Lab](Python/PythonLab.ipynb)

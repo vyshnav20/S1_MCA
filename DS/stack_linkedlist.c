@@ -21,7 +21,7 @@ void push(int v)
     }
     else if(c==max)
     {
-        printf("STACK OVERFLOW!!!");
+        printf("\nSTACK OVERFLOW!!!\n");
     }
     else
     {
@@ -39,7 +39,7 @@ void push(int v)
 int pop()
 {
     if(c==0)
-        printf("STACK EMPTY!!!");
+        printf("\nSTACK EMPTY!!!\n");
     else
     {
         temp=head;
@@ -50,7 +50,7 @@ int pop()
         }
         cur->next=NULL;
         c--;
-        printf("%d is deleted ",temp->d);
+        printf("\n%d is deleted ",temp->d);
         return temp->d;
     }
 }
@@ -60,7 +60,7 @@ void display(){
     temp=head;
     while(temp!=NULL)
     {
-        printf("%d ",temp->d);
+        printf("\n%d ",temp->d);
         temp=temp->next;
     }
 }
